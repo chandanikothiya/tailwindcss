@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+    --font-poppins: "Poppins", sans-serif;
+}
+
+
+.btn {
+    @apply bg-[#88C250] py-4 px-8 text-[14px] font-medium text-white relative overflow-hidden z-10 my-5
+}
+
+
+.btn::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-[#006838] scale-x-0 origin-left transition-transform duration-500 ease-in-out z-[-1]
+}
+
+.btn:hover::before {
+    @apply scale-x-100;
+}
+
+.navitem {
+    @apply relative cursor-pointer transition-all duration-300 ease-in-out;
+}
+
+.navitem::before {
+    content: "";
+
+    @apply absolute left-0 -bottom-1 h-[3px] w-0 bg-[#88C250] transition-all duration-300;
+}
+
+.navitem:hover .link {
+    @apply text-[#88C250];
+}
+
+.navitem:hover::before {
+    @apply w-full;
+}
+
+.link {
+    @apply block py-[34px]
+}
+
+.submenu {
+    @apply bg-white shadow-2xl px-4 w-[230px];
+}
+
+.submenu li {
+    @apply relative overflow-hidden z-10 px-3 py-[11px] my-[7px] transition-colors duration-300;
+}
+
+.submenu li::before {
+    content: "";
+
+    @apply absolute top-0 left-0 w-full h-full bg-[#88C250] scale-x-0 origin-left transition-transform duration-500 ease-in-out z-[-1];
+}
+
+.submenu li:hover::before {
+    @apply scale-x-100;
+}
+
+.submenu li:hover {
+    @apply text-white;
+}
+
+/* relative overflow-hidden z-10
+                            bg-[#88C250]
+                            py-4 px-8
+                            text-[14px]
+                            font-medium
+                            text-white
+
+                            before:content-['']
+                            before:absolute
+                            before:top-0
+                            before:left-0
+                            before:w-full
+                            before:h-full
+                            before:bg-[#006838]
+                            before:scale-x-0
+                            before:origin-left
+                            before:transition-transform
+                            before:duration-500
+                            before:ease-in-out
+                            before:z-[-1]
+
+                            hover:before:scale-x-100" */
