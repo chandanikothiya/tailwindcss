@@ -1,15 +1,25 @@
 import React, { useState } from "react";
+import { VscMenu } from "react-icons/vsc";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { RxCross1 } from "react-icons/rx";
 
 
 function Header() {
 
-    return (
-        <header className="fixed w-full">
-            <div className="flex  font-poppins text-[14px] justify-between container mx-auto mt-5 shadow-2xl px-5 ">
-                <img src="../../public/assets/images/logo.svg" alt="logo" width={200} className="my-5" />
+    const [isOpen, setIsOpen] = useState(false);
+    const [openmenu, setOpenmenu] = useState("")
 
-                <div>
-                    <ul className="flex gap-x-15 font-medium ">
+    const toggle = (menu) => {
+        setOpenmenu(openmenu === menu ? '' : menu)
+    }
+
+    return (
+        <header className="fixed w-full z-10 bg-[#006838]">
+            <div className="bg-white flex  font-poppins text-[14px] justify-between w-full min-[992px]:w-[940px] min-[1024px]:w-[95%] xl:w-[1296px] mx-auto min-[992px]:top:5 shadow-2xl px-5 ">
+                <img src="../../public/assets/images/logo.svg" alt="logo" className="my-5 w-[150px] md:w-[180px] lg:w-[200px]" />
+
+                <div className="hidden min-[992px]:block">
+                    <ul className="flex md:gap-x-7 lg:gap-x-10 font-medium ">
                         <li className="navitem"><a href="#" className="link">Home</a></li>
                         <li className="navitem relative group">
                             <a href="#" className="link" >Pages</a>
@@ -40,7 +50,7 @@ function Header() {
                             </ul>
                         </li>
                         <li className="navitem group"><a href="#" className="link">Blog</a>
-                        <ul className="absolute submenu top-[93px] hidden group-hover:block">
+                            <ul className="absolute submenu top-[93px] hidden group-hover:block">
                                 <li><a href="#">Blog Grid Siderbar</a></li>
                                 <li><a href="#">Blog Single</a></li>
                             </ul>
@@ -49,10 +59,97 @@ function Header() {
                     </ul>
                 </div>
 
-                <button className="btn py-5">Book Appointment</button>
+                <div className="text-3xl min-[992px]:hidden py-7">
+                    <button onClick={() => setIsOpen(!isOpen)}>
+                       {isOpen ? <RxCross1 /> : <VscMenu /> } 
+                    </button>
+                </div>
 
-
+                <button className="btn sm:py-3 min-[992px]:py-5 hidden md:block">Book Appointment</button>
             </div>
+
+            {
+                isOpen &&
+                <nav className="bg-white shadow-md  border-t-1 border-gray-200 w-[90%] mx-auto p-3 px-7 h-[350px] overflow-y-scroll">
+                    <ul>
+                        <li>
+                            <a href="#" className="reslink">Home</a>
+                        </li>
+                        <li>
+                            <div className="resnavitem" onClick={() => toggle("pages")}>
+                                <a href="#" className="reslink">Pages</a>
+                                <button className="group"><MdOutlineKeyboardArrowDown className="text-xl" /></button>
+                            </div>
+                            {
+                                openmenu === 'pages' &&
+                                <ul className="ml-5">
+                                    <li><a href="#" className="block py-3 ">About Us</a></li>
+                                    <li><a href="#" className="block py-3 ">Appointment</a></li>
+                                    <li><a href="#" className="block py-3 ">Time Table</a></li>
+                                    <li><a href="#" className="block py-3 ">Testimonials</a></li>
+                                    <li><a href="#" className="block py-3 ">Project Deatil</a></li>
+                                    <li><a href="#" className="block py-3 ">Our Pricing</a></li>
+                                    <li><a href="#" className="block py-3 ">Sign Up</a></li>
+                                    <li><a href="#" className="block py-3 ">Login</a></li>
+                                    <li><a href="#" className="block py-3 ">Faq</a></li>
+                                    <li><a href="#" className="block py-3 ">Mail success</a></li>
+                                    <li><a href="#" className="block py-3 ">404 Error</a></li>
+                                </ul>
+                            }
+
+                        </li>
+                        <li>
+                            <div className="resnavitem" onClick={() => toggle("services")}>
+                                <a href="#" className="reslink">Services</a>
+                                <button><MdOutlineKeyboardArrowDown className="text-xl" /></button>
+                            </div>
+
+                            {
+                                openmenu === 'services' &&
+                                <ul className="ml-5">
+                                    <li><a href="#" className="block py-3 ">Services</a></li>
+                                    <li><a href="#" className="block py-3 ">Services Details</a></li>
+                                </ul>
+                            }
+
+                        </li>
+                        <li>
+                            <div className="resnavitem" onClick={() => toggle("doctore")}>
+                                <a href="#" className="reslink">Doctore</a>
+                                <button><MdOutlineKeyboardArrowDown className="text-xl" /></button>
+                            </div>
+
+
+                            {
+                                openmenu === 'doctore' &&
+                                <ul className="ml-5">
+                                    <li><a href="#" className="block py-3 ">Doctore</a></li>
+                                    <li><a href="#" className="block py-3 ">Doctore Details</a></li>
+                                </ul>
+                            }
+                        </li>
+                        <li>
+                            <div className="resnavitem" onClick={() => toggle("blog")}>
+                                <a href="#" className="reslink">Blog</a>
+                                <button><MdOutlineKeyboardArrowDown className="text-xl" /></button>
+                            </div>
+
+                            {
+                                openmenu === 'blog' &&
+                                <ul className="ml-5">
+                                    <li><a href="#" className="block py-3 ">Blog Grid Siderbar</a></li>
+                                    <li><a href="#" className="block py-3 ">Blog Single</a></li>
+                                </ul>
+                            }
+                        </li>
+                        <li>
+                            <a href="#" className="reslink">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+
+
         </header>
     )
 }
