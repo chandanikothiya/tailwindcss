@@ -20,18 +20,21 @@
 }
 
 .btnh {
-    @apply bg-white py-4 px-8 text-[14px] font-medium relative overflow-hidden z-10 my-5
+    @apply bg-white  px-8 text-[15px] font-medium relative overflow-hidden z-10 ;
 }
 
 .btnh::before {
     content: "";
-    @apply absolute top-0 left-0 w-full h-full bg-[#88C250] scale-x-0 origin-left transition-transform duration-500 ease-in-out z-[-1]
+    @apply absolute top-0 left-0 w-full h-full bg-[#88C250] scale-x-0 origin-left transition-transform duration-500 ease-in-out z-[-1] ;
 }
 
 .btnh:hover::before {
-    @apply scale-x-100;
+    @apply scale-x-100 ;
 }
 
+.btnh:hover {
+    @apply !text-white;
+}
 
 .navitem {
     @apply relative cursor-pointer transition-all duration-300 ease-in-out;
@@ -39,7 +42,6 @@
 
 .navitem::before {
     content: "";
-
     @apply absolute left-0 -bottom-1 h-[3px] w-0 bg-[#88C250] transition-all duration-300;
 }
 
@@ -65,7 +67,6 @@
 
 .submenu li::before {
     content: "";
-
     @apply absolute top-0 left-0 w-full h-full bg-[#88C250] scale-x-0 origin-left transition-transform duration-500 ease-in-out z-[-1];
 }
 
@@ -83,6 +84,82 @@
 
 .resnavitem {
     @apply flex justify-between
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    @apply text-[20px] text-white h-12 w-12 border-2 rounded-full p-3.5
+           opacity-0 pointer-events-none
+           transition-all duration-500  hidden min-[768px]:flex;
+}
+
+/* Initial positions */
+.swiper-button-prev {
+    @apply -left-20;
+}
+
+.swiper-button-next {
+    @apply -right-20;
+}
+
+/* Show on hover */
+.heroslide:hover .swiper-button-prev,
+.heroslide:hover .swiper-button-next {
+    @apply opacity-100 pointer-events-auto;
+}
+
+/* Slide inward */
+.heroslide:hover .swiper-button-prev {
+    @apply left-5;
+}
+
+.heroslide:hover .swiper-button-next {
+    @apply right-5;
+}
+
+.containercust {
+    @apply w-[300px] min-[576px]:w-[450px] min-[768px]:w-[720px] min-[992px]:w-[940px] min-[1024px]:w-[95%] xl:w-[1296px] mx-auto;
+}
+
+.title {
+    @apply text-[35px] font-[550] font-serif
+}
+
+section {
+    @apply my-[60px]
+}
+
+#hero {
+    @apply !mt-0
+}
+
+
+.subtitle {
+    @apply text-gray-500 my-5
+}
+
+.apptinput {
+    @apply flex items-center border-1 border-gray-300  justify-between px-4 py-[13px] rounded-[2px];
+}
+
+input {
+    @apply text-gray-500;
+}
+
+input:focus {
+    @apply border-0 outline-0;
+}
+
+select:focus {
+    @apply border-0 outline-0;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
 
 /* relative overflow-hidden z-10

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { VscMenu } from "react-icons/vsc";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
@@ -8,14 +8,22 @@ function Header() {
 
     const [isOpen, setIsOpen] = useState(false);
     const [openmenu, setOpenmenu] = useState("")
+    const [scrollPosition, setScrollPosition] = useState(false);
 
     const toggle = (menu) => {
         setOpenmenu(openmenu === menu ? '' : menu)
     }
 
+    useEffect(() => {
+        const handleScroll = () => setScrollPosition(window.scrollY > 50);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header className="fixed w-full z-10 bg-[#006838]">
-            <div className="bg-white flex  font-poppins text-[14px] justify-between w-full min-[992px]:w-[940px] min-[1024px]:w-[95%] xl:w-[1296px] mx-auto min-[992px]:top:5 shadow-2xl px-5 ">
+        <header className={`fixed w-full z-10   ${scrollPosition ? 'bg-white top-0' : 'bg-[#006838] min-[992px]:top-4'}`}>
+            <div className={`bg-white flex  font-poppins text-[14px] justify-between w-full min-[992px]:w-[940px] min-[1024px]:w-[95%]
+                 ${scrollPosition ? 'shadow-0' : 'shadow-2xl'} xl:w-[1296px] mx-auto min-[992px]:top:5  px-5 `}>
                 <img src="../../public/assets/images/logo.svg" alt="logo" className="my-5 w-[150px] md:w-[180px] lg:w-[200px]" />
 
                 <div className="hidden min-[992px]:block">
@@ -61,7 +69,7 @@ function Header() {
 
                 <div className="text-3xl min-[992px]:hidden py-7">
                     <button onClick={() => setIsOpen(!isOpen)}>
-                       {isOpen ? <RxCross1 /> : <VscMenu /> } 
+                        {isOpen ? <RxCross1 /> : <VscMenu />}
                     </button>
                 </div>
 
