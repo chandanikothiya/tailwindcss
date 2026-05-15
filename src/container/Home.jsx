@@ -158,27 +158,27 @@ function Home() {
                             </p>
 
                             <div className="grid grid-cols-12 space-y-2 my-10">
-                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Conducts eye health checkups</p>
                                 </div>
-                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Special eye exam</p>
                                 </div>
-                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Best lasik treatment</p>
                                 </div>
-                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Contact lens service</p>
                                 </div>
-                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Treats minor illnesses</p>
                                 </div>
-                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Special Retina exam</p>
                                 </div>
