@@ -4,7 +4,8 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import { RiUser6Line } from "react-icons/ri";
-
+import { IoMdCheckboxOutline } from "react-icons/io";
+import { PiPlayBold } from "react-icons/pi";
 
 function Home() {
 
@@ -133,9 +134,63 @@ function Home() {
                 </div>
             </section>
 
-            <section id="about">
+            <section id="about" className="bg-[#F9F9F9] py-18">
                 <div className="containercust">
-                    about section
+                    <div className="grid gap-y-7 grid-cols-12 items-center min-[992px]:gap-y-0">
+                        <div className= " col-span-12 min-[992px]:col-span-6 relative">
+                            <img src="../../../public/assets/images/aboutus.png" alt="aboutus" className="object-cover" />
+                            <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&amp;fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
+                             className="bg-white w-[80px] h-[80px] rounded-full flex items-center justify-center !absolute !top-1/2 !left-1/2
+                             -translate-x-1/2 -translate-y-1/2 hover:bg-[#88C250] group animate-outlineSpread">
+                                <PiPlayBold className="text-2xl text-[#88C250] group-hover:text-white" />
+                            </a>
+                        </div>
+
+                        <div className="col-span-12 min-[992px]:col-span-6 min-[992px]:ml-15">
+                            <h3 className="bg-[#88C250] py-1.5 px-5 text-white rounded-[5px] font-medium text-[14px] w-fit">About</h3>
+
+                            <h2 className="title !text-[20px] leading-6 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[30px] ">Thousands Of Specialities For Any Type Diagnostic.</h2>
+
+                            <p className=" subtitle !my-7">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt ut labore et d
+                                olore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat.
+                            </p>
+
+                            <div className="grid grid-cols-12 space-y-2 my-10">
+                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                    <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                    <p className="text-gray-500">Conducts eye health checkups</p>
+                                </div>
+                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                    <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                    <p className="text-gray-500">Special eye exam</p>
+                                </div>
+                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                    <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                    <p className="text-gray-500">Best lasik treatment</p>
+                                </div>
+                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                    <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                    <p className="text-gray-500">Contact lens service</p>
+                                </div>
+                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                    <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                    <p className="text-gray-500">Treats minor illnesses</p>
+                                </div>
+                                <div className="col-span-12 min-[768]:col-span-6 flex gap-x-3">
+                                    <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                    <p className="text-gray-500">Special Retina exam</p>
+                                </div>
+
+                                <div className="col-span-8 min-[576px]:col-span-6 mt-10">
+                                    <button className="btn sm:py-3 min-[992px]:py-5">
+                                        More About Us
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main >
