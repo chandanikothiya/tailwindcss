@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css/navigation';
@@ -6,8 +6,17 @@ import 'swiper/css';
 import { RiUser6Line } from "react-icons/ri";
 import { IoMdCheckboxOutline } from "react-icons/io";
 import { PiPlayBold } from "react-icons/pi";
+import { TbWaveSine } from "react-icons/tb";
+import { BiInjection } from "react-icons/bi";
+import { IoBagHandleOutline } from "react-icons/io5";
+import { PiStethoscopeFill } from "react-icons/pi";
+import { PiBuildingOffice } from "react-icons/pi";
+import { HiOutlineEmojiHappy } from "react-icons/hi";
+import { TbFileCertificate } from "react-icons/tb";
 
 function Home() {
+
+    const [category, setCategory] = useState('Cardiology');
 
 
     const slide = [
@@ -43,8 +52,52 @@ function Home() {
         }
     ]
 
+    const medigrid = [
+        {
+            img: '../../../public/assets/images/d1.jpg',
+            category: 'Cardiology',
+            options: ['Get the oars in the water and start rowing', 'Introspection is the trick.', 'Most people believe that success is difficult.']
+        },
+        {
+            img: '../../../public/assets/images/d2.jpg',
+            category: 'Stomatology',
+            options: ['Get the oars in the water and start rowing', 'Introspection is the trick.', 'Most people believe that success is difficult.']
+        },
+        {
+            img: '../../../public/assets/images/d3.jpg',
+            category: 'Radiology',
+            options: ['Get the oars in the water and start rowing', 'Introspection is the trick.', 'Most people believe that success is difficult.']
+        },
+        {
+            img: '../../../public/assets/images/d4.jpg',
+            category: 'Neurology',
+            options: ['Get the oars in the water and start rowing', 'Introspection is the trick.', 'Most people believe that success is difficult.']
+        },
+        {
+            img: '../../../public/assets/images/d5.jpg',
+            category: 'Ophthalmology',
+            options: ['Get the oars in the water and start rowing', 'Introspection is the trick.', 'Most people believe that success is difficult.', 'Conducts eye health checkups']
+        }
+    ]
+
+    function handleclickbtn(e) {
+        console.log(e.target.innerText);
+        setCategory(e.target.innerText)
+    }
+    //console.log(category)
+
+    let filterdatagrid = medigrid?.find((v) => v.category === category);
+
+    // useEffect(() => {
+    //      filterdatagrid = medigrid?.find((v) => v.category === category)
+    //     console.log(filterdatagrid)
+    // }, [category])
+
+    console.log(filterdatagrid)
+
+
     return (
-        <main>
+        <main className="">
             <section id="hero" className="h-[520px] min-[576px]:h-[492px] min-[768px]:h-[504px] min-[992px]:h-[640px]  xl:h-[750px] ">
                 <div className="bg-[#006838] relative heroslide ">
                     <Swiper
@@ -93,7 +146,7 @@ function Home() {
 
             <section id="bokkappt" className="py-5 ">
                 <div className="containercust">
-                    <h2 className="title">Book An Appointment</h2>
+                    <h2 className="title !text-[22px]  min-[576px]:!text-[25px] min-[992px]:!text-[35px]">Book An Appointment</h2>
 
                     <p className="md:w-[636px] subtitle">
                         Please feel welcome to contact our friendly reception staff with any general or medical enquiry. Our doctors will receive or return any urgent calls.
@@ -134,13 +187,13 @@ function Home() {
                 </div>
             </section>
 
-            <section id="about" className="bg-[#F9F9F9] py-18">
+            <section id="about" className="bg-[#F9F9F9] py-10 lg:py-18">
                 <div className="containercust">
                     <div className="grid gap-y-7 grid-cols-12 items-center min-[992px]:gap-y-0">
-                        <div className= " col-span-12 min-[992px]:col-span-6 relative">
+                        <div className=" col-span-12 min-[992px]:col-span-6 relative">
                             <img src="../../../public/assets/images/aboutus.png" alt="aboutus" className="object-cover" />
                             <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&amp;fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
-                             className="bg-white w-[80px] h-[80px] rounded-full flex items-center justify-center !absolute !top-1/2 !left-1/2
+                                className="bg-white w-[80px] h-[80px] rounded-full flex items-center justify-center !absolute !top-1/2 !left-1/2
                              -translate-x-1/2 -translate-y-1/2 hover:bg-[#88C250] group animate-outlineSpread">
                                 <PiPlayBold className="text-2xl text-[#88C250] group-hover:text-white" />
                             </a>
@@ -157,7 +210,7 @@ function Home() {
                                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat.
                             </p>
 
-                            <div className="grid grid-cols-12 space-y-2 my-10">
+                            <div className="grid grid-cols-12 space-y-2 my-0 lg:my-10">
                                 <div className="col-span-12 min-[768px]:col-span-6 flex gap-x-3">
                                     <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
                                     <p className="text-gray-500">Conducts eye health checkups</p>
@@ -193,6 +246,144 @@ function Home() {
                     </div>
                 </div>
             </section>
+
+            <section id="medigrids">
+                <div className="containercust">
+                    <h2 className="title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[32px]  text-center">Specialities Available At MediGrids</h2>
+                    <p className="md:w-[730px] subtitle mx-auto text-center">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+
+                    <div className="menu bg-[#F9F9F9]">
+                        <ul className="flex flex-col md:flex-row text-[14px] flex-wrap font-medium border-1  border-gray-300 md:border-0">
+                            <li className="group " >
+                                <button href="#" className={`flex items-center px-10 w-full md:w-fit
+                              py-3 md:py-5 border-b-1 md:border-b-3 border-b-gray-300
+                              ${category === 'Cardiology' ? "bg-[#88C250] text-white md:!border-b-[#006838] md:!border-b-3" : 'group-hover:text-[#88C250] '}`} onClick={(e) => handleclickbtn(e)}>
+                                    <div className={`mediicone 
+                                         ${category === 'Cardiology' ? "bg-white text-[#88C250]" : 'group-hover:text-white group-hover:bg-[#88C250] !group-hover:border-0 '}`}>
+                                        <i className="fa-regular fa-heart"></i>
+                                    </div>
+                                    Cardiology
+                                </button></li>
+
+                            <li className="group">
+                                <button href="#" className={`flex items-center px-10 w-full md:w-fit
+                              py-3 md:py-5  border-b-1 md:border-b-3 border-b-gray-300
+                              ${category === 'Stomatology' ? "bg-[#88C250] text-white md:!border-b-[#006838] md:!border-b-3" : 'group-hover:text-[#88C250] '}`} onClick={(e) => handleclickbtn(e)}>
+                                    <div className={`mediicone 
+                                         ${category === 'Stomatology' ? "bg-white text-[#88C250]" : 'group-hover:text-white group-hover:bg-[#88C250] !group-hover:border-0 '}`}>
+                                        <BiInjection />
+                                    </div>
+                                    Stomatology
+                                </button></li>
+
+                            <li className="group">
+                                <button href="#" className={`flex items-center px-10 w-full md:w-fit
+                              py-3 md:py-5 border-b-1 md:border-b-3 border-b-gray-300
+                              ${category === 'Radiology' ? "bg-[#88C250] text-white md:!border-b-[#006838] md:!border-b-3" : 'group-hover:text-[#88C250] '}`} onClick={(e) => handleclickbtn(e)}>
+                                    <div className={`mediicone 
+                                         ${category === 'Radiology' ? "bg-white text-[#88C250]" : 'group-hover:text-white group-hover:bg-[#88C250] !group-hover:border-0 '}`}>
+                                        <IoBagHandleOutline />
+                                    </div>
+                                    Radiology
+                                </button></li>
+
+                            <li className="group">
+                                <button href="#" className={`flex items-center px-10 w-full md:w-fit
+                              py-3 md:py-5 border-b-1 md:border-b-3 border-b-gray-300
+                              ${category === 'Neurology' ? "bg-[#88C250] text-white md:!border-b-[#006838] md:!border-b-3" : 'group-hover:text-[#88C250] '}`} onClick={(e) => handleclickbtn(e)}>
+                                    <div className={`mediicone  
+                                         ${category === 'Neurology' ? "bg-white text-[#88C250]" : 'group-hover:text-white group-hover:bg-[#88C250] !group-hover:border-0 '}`}>
+                                        <TbWaveSine />
+                                    </div>
+                                    Neurology
+                                </button></li>
+
+                            <li className="group">
+                                <button href="#" className={`flex items-center px-10 w-full md:w-fit
+                              py-3 md:py-5  md:border-b-3 border-b-gray-300
+                              ${category === 'Ophthalmology' ? "bg-[#88C250] text-white md:!border-b-[#006838] md:!border-b-3" : 'group-hover:text-[#88C250] '}`} onClick={(e) => handleclickbtn(e)}>
+                                    <div className={`mediicone 
+                                         ${category === 'Ophthalmology' ? "bg-white text-[#88C250]" : 'group-hover:text-white group-hover:bg-[#88C250] !group-hover:border-0 '}`}>
+                                        <PiStethoscopeFill />
+                                    </div>
+                                    Ophthalmology
+                                </button></li>
+                        </ul>
+                    </div>
+
+                    <div className="doctorelist grid grid-cols-12 mt-15 gap-y-8">
+                        <div className="col-span-12 md:col-span-6 lg:col-span-5 self-center">
+                            <img src={filterdatagrid?.img} alt="" className="w-full " />
+                        </div>
+                        <div className="col-span-12 md:col-span-6 ml-0 md:ml-5 lg:ml-15 self-center ">
+                            <h3 className="text-[22px] md:text-[28px] lg:text-[30px] font-semibold font-normal ">{filterdatagrid?.category}</h3>
+
+                            <div className="checked flex flex-col gap-2 my-8">
+                                {
+                                    filterdatagrid?.options?.map((v1) => (
+                                        <div className="col-span-12  min-[768px]:col-span-6 flex gap-x-3">
+                                            <IoMdCheckboxOutline className="text-[#88C250] text-2xl" />
+                                            <p className="text-[#888888] font-medium text-[14px]">{v1}</p>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+
+                            <p className="text-[#888888] font-medium text-[14px] leading-6">
+                                For those of you who are serious about having more, doing more, giving more and being more, success is achievable with some understanding of what to do,
+                                some discipline around planning and execution of those plans and belief that you can achieve your desires.
+                            </p>
+
+                            <p className="text-[#888888] font-medium text-[14px] mt-7 leading-6  ">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non leo nunc. Vivamus lacinia massa nec sem sagittis.
+                            </p>
+
+                            <button className="btn sm:py-3 min-[992px]:py-5  !mt-8 !mb-0">View Speciality</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="our-archivment" className="!my-[40px] md:my-[60px]">
+                <div className="containercust">
+                    <div className="flex gap-x-10 justify-center min-[576px]:gap-x-0  min-[576px]:justify-between flex-wrap md:flex-nowrap  min-[576px]:w-[60%] md:w-[90%] lg:w-[80%] mx-auto gap-y-10">
+                        <div className="text-white text-center">
+                            <div className="archivment-icone text-[#006838] text-[30px] bg-white w-16.5 h-16.5 flex justify-center items-center mx-auto">
+                                <PiBuildingOffice />
+                            </div>
+                            <h3 className="md:text-[25px] lg:text-[30px] mt-5 font-medium">1250</h3>
+                            <p className="text-[14px] font-medium">Hospital Rooms</p>
+                        </div>
+
+                        <div className="text-white text-center">
+                            <div className="archivment-icone text-[#006838] text-[30px] bg-white w-16.5 h-16.5 flex justify-center items-center mx-auto">
+                                <PiStethoscopeFill />
+                            </div>
+                            <h3 className="md:text-[25px] lg:text-[30px] mt-5 font-medium">350</h3>
+                            <p className="text-[14px] font-medium">Specialist Doctors</p>
+                        </div>
+
+                        <div className="text-white text-center">
+                            <div className="archivment-icone text-[#006838] text-[30px] bg-white w-16.5 h-16.5 flex justify-center items-center mx-auto">
+                                <HiOutlineEmojiHappy />
+                            </div>
+                            <h3 className="md:text-[25px] lg:text-[30px] mt-5 font-medium">2500</h3>
+                            <p className="text-[14px] font-medium">Happy Patients</p>
+                        </div>
+
+                        <div className="text-white text-center">
+                            <div className="archivment-icone text-[#006838] text-[30px] bg-white w-16.5 h-16.5 flex justify-center items-center mx-auto">
+                                <TbFileCertificate />
+                            </div>
+                            <h3 className="md:text-[25px] lg:text-[30px] mt-5 font-medium">35</h3>
+                            <p className="text-[14px] font-medium">Years of Experience</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
         </main >
     )
 }

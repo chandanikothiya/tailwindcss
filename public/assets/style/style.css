@@ -6,7 +6,7 @@
 
 
 .btn {
-    @apply bg-[#88C250] py-4 px-8 text-[14px] font-medium text-white relative overflow-hidden z-10 my-5
+    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden z-10 my-4
 }
 
 
@@ -138,11 +138,11 @@
 }
 
 .title {
-    @apply text-[35px] font-[550] font-serif
+    @apply text-[35px] font-[550] font-serif 
 }
 
 section {
-    @apply my-[60px]
+    @apply my-[10px] md:my-[60px]
 }
 
 #hero {
@@ -225,8 +225,46 @@ select {
 }
 
 
+.first a:hover{
+    @apply underline
+}
 
+.icone{
+    @apply bg-white w-7 h-7 flex items-center justify-center duration-500
+}
 
+.icone:hover {
+    @apply rounded-2xl
+}
+
+.third a:hover {
+    @apply underline
+}
+
+.third {
+    font-weight: 400;
+}
+
+.mediicone {
+    @apply border-gray-300  w-9 h-9 flex items-center justify-center border-1 rounded-[50%] mr-4  
+}
+
+#our-archivment::before{
+    content:'';
+      background: rgba(0, 104, 56, 0.88);
+}
+
+#our-archivment{
+     /* background:
+    linear-gradient(  rgba(0, 104, 55, 0.712)),
+    url("../../../public/assets/images/pattern.png");
+
+  background-size: cover; */
+  @apply bg-[#006838] py-20
+}
+/* p {
+    color: #888888
+} */
 /* relative overflow-hidden z-10
                             bg-[#88C250]
                             py-4 px-8
