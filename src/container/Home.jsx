@@ -13,11 +13,21 @@ import { PiStethoscopeFill } from "react-icons/pi";
 import { PiBuildingOffice } from "react-icons/pi";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { TbFileCertificate } from "react-icons/tb";
+import { PiAmbulance } from "react-icons/pi";
+import { RiStethoscopeFill } from "react-icons/ri";
+import { GiMicroscope } from "react-icons/gi";
+import { HiOutlineUserGroup } from "react-icons/hi2";
+import { TbHandThreeFingers } from "react-icons/tb";
+import { FaRegHeart } from "react-icons/fa";
+import { IoIosLink } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
 
 function Home() {
 
     const [category, setCategory] = useState('Cardiology');
-
+    const [galleryopt, setGalleryopt] = useState('Show All')
+    const [scrollPosition, setScrollPosition] = useState(false);
 
     const slide = [
         {
@@ -80,6 +90,56 @@ function Home() {
         }
     ]
 
+    const galleryobj = [
+        {
+            category: 'Cardiology',
+            images: [{
+                url: '../../../public/assets/images/c1.jpg',
+                title: 'Dry Eye Surgery',
+                subtitle: 'Eye Surgery'
+            }]
+        },
+        {
+            category: 'Diabetes',
+            images: [
+                {
+                    url: '../../../public/assets/images/di1.jpg',
+                    title: 'Qualified Physicians',
+                    subtitle: 'Cardiac Surgery'
+                }, {
+                    url: '../../../public/assets/images/di2.jpg',
+                    title: 'Personalized Medication',
+                    subtitle: 'Cloud Services'
+                }]
+        },
+        {
+            category: 'Pediatric',
+            images: [{
+                url: '../../../public/assets/images/p1.jpg',
+                title: 'Excellence And Safety',
+                subtitle: 'Dietetics'
+            }, {
+                url: '../../../public/assets/images/p2.jpg',
+                title: 'Surgical Procedure',
+                subtitle: 'Surgical'
+            }]
+        },
+        {
+            category: 'Neurosurgery',
+            images: [{
+                url: '../../../public/assets/images/n1.jpg',
+                title: 'Dry Eye Surgery',
+                subtitle: 'Eye Surgery'
+            }]
+        },
+    ]
+
+    useEffect(() => {
+        const handleScroll = () => setScrollPosition(window.scrollY > 50);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     function handleclickbtn(e) {
         console.log(e.target.innerText);
         setCategory(e.target.innerText)
@@ -93,7 +153,15 @@ function Home() {
     //     console.log(filterdatagrid)
     // }, [category])
 
-    console.log(filterdatagrid)
+    console.log(filterdatagrid, galleryopt)
+
+    function handlegalleryclick(e) {
+        console.log(e.target.innerText)
+        setGalleryopt(e.target.innerText)
+    }
+
+    const galleryfilter = galleryopt === 'Show All' ? galleryobj : galleryobj?.filter((v) => v?.category === galleryopt)
+    console.log(galleryfilter)
 
 
     return (
@@ -144,9 +212,14 @@ function Home() {
                 </div>
             </section>
 
-            <section id="bokkappt" className="py-5 ">
+            <section id="bokkappt" className="pt-5 pb-5 md:pb-0">
                 <div className="containercust">
-                    <h2 className="title !text-[22px]  min-[576px]:!text-[25px] min-[992px]:!text-[35px]">Book An Appointment</h2>
+                    <h2 className="text title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 
+                    min-[576px]:!text-[25px] min-[992px]:!text-[32px]">
+                        <span className="main">Book An Appointment</span>
+                        <span className="bg left-0">Appointment</span>
+                    </h2>
+                    {/* <h2 className="title !text-[22px]  min-[576px]:!text-[25px] min-[992px]:!text-[35px]">Book An Appointment</h2> */}
 
                     <p className="md:w-[636px] subtitle">
                         Please feel welcome to contact our friendly reception staff with any general or medical enquiry. Our doctors will receive or return any urgent calls.
@@ -179,7 +252,7 @@ function Home() {
                                 <i className="fa-regular fa-clipboard text-gray-500"></i>
                             </div>
 
-                            <button className="col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-3 btn !my-0">Get Appoinment</button>
+                            <button className="col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-3 btn !my-0 ">Get Appoinment</button>
                         </div>
 
                     </form>
@@ -187,7 +260,7 @@ function Home() {
                 </div>
             </section>
 
-            <section id="about" className="bg-[#F9F9F9] py-10 lg:py-18">
+            <section id="about" className="bg-[#F9F9F9] py-10 lg:py-18 ">
                 <div className="containercust">
                     <div className="grid gap-y-7 grid-cols-12 items-center min-[992px]:gap-y-0">
                         <div className=" col-span-12 min-[992px]:col-span-6 relative">
@@ -247,13 +320,19 @@ function Home() {
                 </div>
             </section>
 
-            <section id="medigrids">
+            <section id="medigrids" className="!mt-[100px]">
                 <div className="containercust">
-                    <h2 className="title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[32px]  text-center">Specialities Available At MediGrids</h2>
+                    <h2 className="text title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[32px]  text-center">
+                        <span className="main">Specialities Available At MediGrids</span>
+                        <span className="bg left-[50%] translate-x-[-50%]">Department</span>
+                    </h2>
+
+                    <hr className="w-[50px] mx-auto mt-4 h-[3.5px] rounded-[5px] border-0 bg-[#88C250]" />
+
                     <p className="md:w-[730px] subtitle mx-auto text-center">
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
 
-                    <div className="menu bg-[#F9F9F9]">
+                    <div className="menu bg-[#F9F9F9] mt-15">
                         <ul className="flex flex-col md:flex-row text-[14px] flex-wrap font-medium border-1  border-gray-300 md:border-0">
                             <li className="group " >
                                 <button href="#" className={`flex items-center px-10 w-full md:w-fit
@@ -339,7 +418,7 @@ function Home() {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non leo nunc. Vivamus lacinia massa nec sem sagittis.
                             </p>
 
-                            <button className="btn sm:py-3 min-[992px]:py-5  !mt-8 !mb-0">View Speciality</button>
+                            <button className="btn sm:py-3 min-[992px]:py-5  !mt-8 !mb-0 ">View Speciality</button>
                         </div>
                     </div>
                 </div>
@@ -347,7 +426,7 @@ function Home() {
 
             <section id="our-archivment" className="!my-[40px] md:my-[60px]">
                 <div className="containercust">
-                    <div className="flex gap-x-10 justify-center min-[576px]:gap-x-0  min-[576px]:justify-between flex-wrap md:flex-nowrap  min-[576px]:w-[60%] md:w-[90%] lg:w-[80%] mx-auto gap-y-10">
+                    <div className="flex gap-x-10 justify-center min-[576px]:gap-x-0 py-23 min-[576px]:justify-between flex-wrap md:flex-nowrap  min-[576px]:w-[60%] md:w-[90%] lg:w-[80%] mx-auto gap-y-10">
                         <div className="text-white text-center">
                             <div className="archivment-icone text-[#006838] text-[30px] bg-white w-16.5 h-16.5 flex justify-center items-center mx-auto">
                                 <PiBuildingOffice />
@@ -384,7 +463,285 @@ function Home() {
                 </div>
             </section>
 
-        </main >
+            <section id="service" className="!mt-[100px]">
+                <div className="containercust">
+                    <h2 className="text title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[32px]  text-center">
+                        <span className="main">Services Provided By MediGrids</span>
+                        <span className="bg left-[50%] translate-x-[-50%]">Services</span>
+                    </h2>
+
+                    <hr className="w-[50px] mx-auto mt-4 h-[3.5px] rounded-[5px] border-0 bg-[#88C250]" />
+
+                    <p className="md:w-[730px] subtitle mx-auto text-center">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+                    </p>
+
+                    <div className="grid grid-cols-12 mt-15 gap-y-8 min-[768px]:gap-8 min-[992px]:gap-0">
+                        <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
+                         border-gray-200 p-8 md:p-10 hover:bg-[#006838] overflow-hidden">
+
+                            <div className="archivment-icone text-[#ffffff] text-[30px] bg-[#006838] w-16.5 h-16.5 flex justify-center items-center
+                             group-hover:bg-white ">
+                                <PiAmbulance className="group-hover:text-[#006838]" />
+                            </div>
+                            <h3 className="text-[19px] font-serif font-[600] mt-7 group-hover:text-white"><a href="#">Fast Ambulance</a></h3>
+                            <p className="subtitle !text-[13px] !mb-0 group-hover:!text-white">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered.
+                            </p>
+
+                            <img src="../../public/assets/images/s4.svg" alt="svg"
+                                className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+
+                            <img src="../../public/assets/images/s5.svg" alt="svg"
+                                className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                        </div>
+
+                        <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
+                         border-gray-200 p-8 md:p-10 min-[992px]:border-l-0 hover:bg-[#006838] overflow-hidden">
+
+                            <div className="archivment-icone text-[#ffffff] text-[30px] bg-[#006838] w-16.5 h-16.5 flex justify-center items-center
+                             group-hover:bg-white ">
+                                <RiStethoscopeFill className="group-hover:text-[#006838]" />
+                            </div>
+                            <h3 className="text-[19px] font-serif font-[600] mt-7 group-hover:text-white"><a href="#">Dental Specialist</a></h3>
+                            <p className="subtitle !text-[13px] !mb-0 group-hover:!text-white">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered.
+                            </p>
+
+                            <img src="../../public/assets/images/s4.svg" alt="svg"
+                                className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+
+                            <img src="../../public/assets/images/s5.svg" alt="svg"
+                                className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                        </div>
+
+                        <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
+                         border-gray-200 p-8 md:p-10 min-[992px]:border-l-0 hover:bg-[#006838] overflow-hidden">
+
+                            <div className="archivment-icone text-[#ffffff] text-[30px] bg-[#006838] w-16.5 h-16.5 flex justify-center items-center
+                             group-hover:bg-white ">
+                                <GiMicroscope className="group-hover:text-[#006838]" />
+                            </div>
+                            <h3 className="text-[19px] font-serif font-[600] mt-7 group-hover:text-white"><a href="#">Modern Laboratory</a></h3>
+                            <p className="subtitle !text-[13px] !mb-0 group-hover:!text-white">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered.
+                            </p>
+
+                            <img src="../../public/assets/images/s4.svg" alt="svg"
+                                className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+
+                            <img src="../../public/assets/images/s5.svg" alt="svg"
+                                className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                        </div>
+
+
+                        <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
+                         border-gray-200 p-8 md:p-10 min-[992px]:border-t-0 hover:bg-[#006838] overflow-hidden">
+
+                            <div className="archivment-icone text-[#ffffff] text-[30px] bg-[#006838] w-16.5 h-16.5 flex justify-center items-center
+                             group-hover:bg-white ">
+                                <HiOutlineUserGroup className="group-hover:text-[#006838]" />
+                            </div>
+                            <h3 className="text-[19px] font-serif font-[600] mt-7 group-hover:text-white"><a href="#">Children Center</a></h3>
+                            <p className="subtitle !text-[13px] !mb-0 group-hover:!text-white">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered.
+                            </p>
+
+                            <img src="../../public/assets/images/s4.svg" alt="svg"
+                                className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+
+                            <img src="../../public/assets/images/s5.svg" alt="svg"
+                                className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                        </div>
+
+
+                        <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
+                         border-gray-200 p-8 md:p-10 min-[992px]:border-l-0 min-[992px]:border-t-0 hover:bg-[#006838] overflow-hidden">
+
+                            <div className="archivment-icone text-[#ffffff] text-[30px] bg-[#006838] w-16.5 h-16.5 flex justify-center items-center
+                             group-hover:bg-white ">
+                                <FaRegHeart className="group-hover:text-[#006838]" />
+                            </div>
+                            <h3 className="text-[19px] font-serif font-[600] mt-7 group-hover:text-white"><a href="#">Heart Surgery</a></h3>
+                            <p className="subtitle !text-[13px] !mb-0 group-hover:!text-white">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered.
+                            </p>
+
+                            <img src="../../public/assets/images/s4.svg" alt="svg"
+                                className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+
+                            <img src="../../public/assets/images/s5.svg" alt="svg"
+                                className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                        </div>
+
+
+                        <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
+                         border-gray-200 p-8 md:p-10 min-[992px]:border-l-0 min-[992px]:border-t-0 hover:bg-[#006838] overflow-hidden">
+
+                            <div className="archivment-icone text-[#ffffff] text-[30px] bg-[#006838] w-16.5 h-16.5 flex justify-center items-center
+                             group-hover:bg-white ">
+                                <TbHandThreeFingers className="group-hover:text-[#006838]" />
+                            </div>
+                            <h3 className="text-[19px] font-serif font-[600] mt-7 group-hover:text-white"><a href="#">Care Advice</a></h3>
+                            <p className="subtitle !text-[13px] !mb-0 group-hover:!text-white">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered.
+                            </p>
+
+                            <img src="../../public/assets/images/s4.svg" alt="svg"
+                                className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+
+                            <img src="../../public/assets/images/s5.svg" alt="svg"
+                                className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" className="!my-[40px] md:my-[60px] py-10 sm:py-20 ">
+                <div className="containercust">
+                    <h2 className="text title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[32px]  text-center">
+                        <span className="main">Here Is Some Of Our <br /> Latest Cases</span>
+                        <span className="bg left-[50%] translate-x-[-50%]">Projects</span>
+                    </h2>
+
+                    <hr className="w-[50px] mx-auto mt-4 h-[3.5px] rounded-[5px] border-0 bg-[#88C250]" />
+
+                    <p className="md:w-[730px] subtitle mx-auto text-center">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+                    </p>
+
+                    <div className="flex gap-y-4 sm:gap-y-0 gap-x-3 justify-center mt-15 flex-wrap">
+                        <button className="gallerybtn" onClick={(e) => handlegalleryclick(e)}>Show All</button>
+                        <button className="gallerybtn" onClick={(e) => handlegalleryclick(e)}>Cardiology</button>
+                        <button className="gallerybtn" onClick={(e) => handlegalleryclick(e)}>Diabetes</button>
+                        <button className="gallerybtn" onClick={(e) => handlegalleryclick(e)}>Pediatric</button>
+                        <button className="gallerybtn" onClick={(e) => handlegalleryclick(e)}>Neurosurgery</button>
+                    </div>
+
+                    <div className="grid grid-cols-12  gap-6 mt-8 sm:mt-15">
+
+                        {
+                            galleryfilter?.map((v) => (
+                                v?.images?.map((v1) => (
+                                    <div className="img-card col-span-12  min-[576px]:col-span-6 lg:col-span-4">
+                                        <img src={v1.url} alt={v1.subtitle} className="w-full" />
+                                        <div className="gtext h-full flex flex-col">
+                                            <p className="text-[14px]">{v1.subtitle}</p>
+                                            <h4 className="text-[19px]">{v1.title}</h4>
+
+                                            <div className="border-1 p-2 w-fit mt-auto">
+                                                <IoIosLink />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            ))
+                        }
+
+                        {/* <div className="img-card col-span-4">
+                            <img src="../../../public/assets/images/c1.jpg" alt="" className="w-full" />
+                            <div className="gtext h-full flex flex-col">
+                                <p className="text-[14px]"> Cardiac Surgery</p>
+                                <h4 className="text-[19px]">Qualified Physicians</h4>
+
+                                <div className="border-1 p-2 w-fit mt-auto">
+                                    <IoIosLink />
+                                </div>
+                            </div>
+                        </div> */}
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="supscription" className="">
+                <div className="containercust">
+                    <h2 className="text title !text-[22px] leading-8 min-[576px]:leading-8 min-[992px]:leading-10 mt-3 min-[576px]:!text-[25px] min-[992px]:!text-[32px]  text-center">
+                        <span className="main">Pricing Plan</span>
+                        <span className="bg left-[50%] translate-x-[-50%]">PRICING</span>
+                    </h2>
+
+                    <hr className="w-[50px] mx-auto mt-4 h-[3.5px] rounded-[5px] border-0 bg-[#88C250]" />
+
+
+                    <p className="md:w-[730px] subtitle mx-auto text-center">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
+                    </p>
+
+                    <div className="supscription-cards grid grid-cols-12 gap-6 lg:gap-10 mt-15">
+
+                        <div className="supscription-card col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 lg:col-span-4">
+                            <h5>Basic</h5>
+                            <h3>$45</h3>
+                            <h6>/ Monthly</h6>
+
+                            <div className="scard-text mt-6">
+                                <ul>
+                                    <li className="border-b-1 border-gray-200">Routine Checkup</li>
+                                    <li className="border-b-1 border-gray-200">24Th Assisance</li>
+                                    <li className="border-b-1 border-gray-200">100 Text & Treatments</li>
+                                    <li>Regular Health Checkups</li>
+                                </ul>
+                            </div>
+
+                            <button className="btn sm:py-3 min-[992px]:py-5 !px-8 !mt-8 !mb-0">Make Payment</button>
+                        </div>
+
+                        <div className="supscription-card col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 lg:col-span-4">
+                            <h5>Advance</h5>
+                            <h3>$204</h3>
+                            <h6>/ Monthly</h6>
+
+                            <div className="scard-text mt-6">
+                                <ul>
+                                    <li className="border-b-1 border-gray-200">Routine Checkup</li>
+                                    <li className="border-b-1 border-gray-200">24Th Assisance</li>
+                                    <li className="border-b-1 border-gray-200">100 Text & Treatments</li>
+                                    <li>Regular Health Checkups</li>
+                                </ul>
+                            </div>
+
+                            <button className="btn sm:py-3 min-[992px]:py-5 !px-8 !mt-8 !mb-0">Make Payment</button>
+                        </div>
+
+                        <div className="supscription-card col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 lg:col-span-4">
+                            <h5>Premium</h5>
+                            <h3>$355</h3>
+                            <h6>/ Monthly</h6>
+
+                            <div className="scard-text mt-6">
+                                <ul>
+                                    <li className="border-b-1 border-gray-200">Routine Checkup</li>
+                                    <li className="border-b-1 border-gray-200">24Th Assisance</li>
+                                    <li className="border-b-1 border-gray-200">100 Text & Treatments</li>
+                                    <li>Regular Health Checkups</li>
+                                </ul>
+                            </div>
+
+                            <button className="btn sm:py-3 min-[992px]:py-5 !px-8 !mt-8 !mb-0">Make Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <a href="#" className={`bg-[#88C250] text-white  w-11 h-11  justify-center items-center text-[22px] 
+                fixed right-7 bottom-10 z-10 ${scrollPosition ? 'flex' : 'hidden'} hover:bg-[#081828] ease-in-out duration-400 hover:-translate-y-2`}>
+                <IoIosArrowUp />
+            </a>
+        </main>
     )
 }
 

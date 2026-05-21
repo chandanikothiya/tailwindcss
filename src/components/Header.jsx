@@ -21,7 +21,7 @@ function Header() {
     }, []);
 
     return (
-        <header className={`fixed w-full z-10   ${scrollPosition ? 'bg-white top-0' : 'bg-[#006838] min-[992px]:top-4'}`}>
+        <header className={`fixed w-full z-10   ${scrollPosition ? 'bg-white top-0 shadow-lg' : 'bg-[#006838] min-[992px]:top-4'}`}>
             <div className={`bg-white flex  font-poppins text-[14px] justify-between w-full min-[992px]:w-[940px] min-[1024px]:w-[95%] items-center
                  ${scrollPosition ? 'shadow-0' : 'shadow-2xl'} xl:w-[1296px] mx-auto min-[992px]:top:5  px-5 `}>
                 <img src="../../public/assets/images/logo.svg" alt="logo" className="my-3 w-[150px] md:w-[180px] lg:w-[200px]" />
@@ -73,7 +73,7 @@ function Header() {
                     </button>
                 </div>
 
-                <button className="btn sm:py-3 min-[992px]:py-5 hidden md:block">Book Appointment</button>
+                <button className="btn sm:py-3 min-[992px]:py-5 hidden md:block !z-10">Book Appointment</button>
             </div>
 
             {

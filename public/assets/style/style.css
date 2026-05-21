@@ -6,7 +6,7 @@
 
 
 .btn {
-    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden z-10 my-4
+    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden  my-4 z-0
 }
 
 
@@ -52,6 +52,7 @@
 .btnf:hover {
     @apply !text-black;
 }
+
 /* btnf */
 
 .navitem {
@@ -138,11 +139,11 @@
 }
 
 .title {
-    @apply text-[35px] font-[550] font-serif 
+    @apply text-[35px] font-[550] font-serif
 }
 
 section {
-    @apply my-[10px] md:my-[60px]
+    @apply my-[10px] md:my-[100px]
 }
 
 #hero {
@@ -151,7 +152,7 @@ section {
 
 
 .subtitle {
-    @apply text-gray-500 my-5
+    @apply text-gray-500 my-5 text-[14px] font-poppins
 }
 
 .apptinput {
@@ -225,11 +226,11 @@ select {
 }
 
 
-.first a:hover{
+.first a:hover {
     @apply underline
 }
 
-.icone{
+.icone {
     @apply bg-white w-7 h-7 flex items-center justify-center duration-500
 }
 
@@ -246,22 +247,102 @@ select {
 }
 
 .mediicone {
-    @apply border-gray-300  w-9 h-9 flex items-center justify-center border-1 rounded-[50%] mr-4  
+    @apply border-gray-300 w-9 h-9 flex items-center justify-center border-1 rounded-[50%] mr-4
 }
 
-#our-archivment::before{
-    content:'';
-      background: rgba(0, 104, 56, 0.88);
+#our-archivment::before {
+    content: '';
+    background: rgba(0, 104, 56, 0.88);
 }
 
-#our-archivment{
-     /* background:
-    linear-gradient(  rgba(0, 104, 55, 0.712)),
-    url("../../../public/assets/images/pattern.png");
-
-  background-size: cover; */
-  @apply bg-[#006838] py-20
+#our-archivment {
+    background:
+        url("../../../public/assets/images/pattern2.png");
+    /* @apply bg-[#006838] py-20 */
 }
+
+.text {
+    position: relative;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.main {
+    position: relative;
+    color: #111827;
+    z-index: 2;
+}
+
+.bg {
+    position: absolute;
+    top: -20px;
+    color: rgba(0, 0, 0, 0.05);
+    /* font-size: 80px; */
+    z-index: 1;
+
+    @apply text-[30px] min-[576px]:!text-[60px] min-[992px]:!text-[80px]
+}
+
+#gallery {
+    background-image:
+        linear-gradient(rgba(224, 242, 250, 0.5)),
+        url("../../../public/assets/images/galleryback.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.gallerybtn {
+    @apply border-1 border-gray-300 text-[13px] font-poppins px-5 py-1.5 hover:bg-[#006838] hover:text-white
+}
+
+.img-card{
+    position: relative;
+     overflow: hidden;
+}
+
+.img-card::before {
+    content: '';
+    position: absolute;
+    background-color:rgba(0, 104, 55, 0.822); 
+    top:0;
+    right:-100%;
+    width:100%;
+    height:100%;
+    transition: 0.6s ease;
+}
+
+.img-card:hover::before{
+    right:0
+}
+
+.gtext{
+    @apply absolute top-0 left-8 font-poppins text-white py-10 hidden
+}
+
+.img-card:hover .gtext{
+    @apply flex
+}
+
+.supscription-card{
+    @apply border-1 border-gray-200 border-t-6 border-t-[#88C250] py-[50px] px-10 text-center hover:-translate-y-2 ease-in-out duration-400  hover:shadow-lg
+}
+
+.supscription-card h5{ 
+    @apply text-[18px] font-serif text-[#88C250] mb-3
+}
+
+.supscription-card h3{
+    @apply text-[35px] font-poppins font-medium 
+}
+
+.supscription-card h6{
+    @apply text-[13px] font-serif 
+}
+
+.scard-text li{
+    @apply text-[14px] font-poppins py-4  
+}
+
 /* p {
     color: #888888
 } */
