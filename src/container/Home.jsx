@@ -581,7 +581,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
-                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:-right-10 2xl:right-0" />
                         </div>
 
                         <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
@@ -602,7 +602,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
-                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-0" />
                         </div>
 
                         <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
@@ -645,7 +645,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
-                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-0" />
                         </div>
 
 
@@ -667,7 +667,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
-                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-0" />
                         </div>
 
 
@@ -689,7 +689,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
-                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-10" />
+                                 group-hover:opacity-100  group-hover:translate-x-0 !w-7 h-auto md:right-0 2xl:right-0" />
                         </div>
 
                     </div>
