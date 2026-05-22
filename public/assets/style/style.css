@@ -4,9 +4,13 @@
     --font-poppins: "Poppins", sans-serif;
 }
 
+@theme {
+    --font-merriweather: "Merriweather", sans-serif;
+}
+
 
 .btn {
-    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden  my-4 z-0
+    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden my-4 z-0
 }
 
 
@@ -143,7 +147,7 @@
 }
 
 section {
-    @apply my-[10px] md:my-[100px]
+    @apply my-[50px] md:my-[100px]
 }
 
 #hero {
@@ -152,7 +156,7 @@ section {
 
 
 .subtitle {
-    @apply text-gray-500 my-5 text-[14px] font-poppins
+    @apply text-gray-500 my-5 text-[14px] font-poppins leading-[25px] md:leading-6
 }
 
 .apptinput {
@@ -295,54 +299,95 @@ select {
     @apply border-1 border-gray-300 text-[13px] font-poppins px-5 py-1.5 hover:bg-[#006838] hover:text-white
 }
 
-.img-card{
+.img-card {
     position: relative;
-     overflow: hidden;
+    overflow: hidden;
 }
 
 .img-card::before {
     content: '';
     position: absolute;
-    background-color:rgba(0, 104, 55, 0.822); 
-    top:0;
-    right:-100%;
-    width:100%;
-    height:100%;
+    background-color: rgba(0, 104, 55, 0.822);
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
     transition: 0.6s ease;
 }
 
-.img-card:hover::before{
-    right:0
+.img-card:hover::before {
+    right: 0
 }
 
-.gtext{
+.gtext {
     @apply absolute top-0 left-8 font-poppins text-white py-10 hidden
 }
 
-.img-card:hover .gtext{
+.img-card:hover .gtext {
     @apply flex
 }
 
-.supscription-card{
-    @apply border-1 border-gray-200 border-t-6 border-t-[#88C250] py-[50px] px-10 text-center hover:-translate-y-2 ease-in-out duration-400  hover:shadow-lg
+.supscription-card {
+    @apply border-1 border-gray-200 border-t-6 border-t-[#88C250] py-[50px] px-10 text-center hover:-translate-y-2 ease-in-out duration-400 hover:shadow-lg
 }
 
-.supscription-card h5{ 
+.supscription-card h5 {
     @apply text-[18px] font-serif text-[#88C250] mb-3
 }
 
-.supscription-card h3{
-    @apply text-[35px] font-poppins font-medium 
+.supscription-card h3 {
+    @apply text-[35px] font-poppins font-medium
 }
 
-.supscription-card h6{
-    @apply text-[13px] font-serif 
+.supscription-card h6 {
+    @apply text-[13px] font-serif
 }
 
-.scard-text li{
-    @apply text-[14px] font-poppins py-4  
+.scard-text li {
+    @apply text-[14px] font-poppins py-4
 }
 
+.swiper-pagination-bullet {
+
+    border-radius: 0 !important;
+    height: 4.5px !important;
+    width: 30px !important;
+    background-color: white;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #88C250;
+}
+
+.social a {
+    display: inline-block;
+    margin-left: 18px;
+}
+
+@keyframes fadeInUpSoft {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.group:hover .social {
+    animation: fadeInUpSoft 0.5s ease forwards;
+}
+
+.card-second{
+    background-image:
+       
+        url("../../../public/assets/images/hw1.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
 /* p {
     color: #888888
 } */
