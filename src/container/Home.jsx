@@ -562,7 +562,7 @@ function Home() {
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
                     </p>
 
-                    <div className="grid grid-cols-12 mt-15 gap-y-8 min-[768px]:gap-8 min-[992px]:gap-0">
+                    <div className="grid grid-cols-12 mt-9 md:mt-15 gap-y-8 min-[768px]:gap-8 min-[992px]:gap-0">
                         <div className="group relative col-span-12 min-[768px]:col-span-6 min-[992px]:col-span-4 border-1
                          border-gray-200 p-8 md:p-10 hover:bg-[#006838] overflow-hidden">
 
@@ -577,7 +577,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s4.svg" alt="svg"
                                 className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
-                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[100px]" />
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
@@ -598,7 +598,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s4.svg" alt="svg"
                                 className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
-                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[100px]" />
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
@@ -619,7 +619,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s4.svg" alt="svg"
                                 className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
-                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[100px]" />
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
@@ -641,7 +641,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s4.svg" alt="svg"
                                 className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
-                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[100px]" />
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
@@ -663,7 +663,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s4.svg" alt="svg"
                                 className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
-                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[100px]" />
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
@@ -685,7 +685,7 @@ function Home() {
 
                             <img src="../../public/assets/images/s4.svg" alt="svg"
                                 className="opacity-0 absolute   transition-all duration-500 ease-in-out  -top-11 right-8  translate-y-[-20px]
-                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[120px]" />
+                                 group-hover:opacity-100  group-hover:translate-y-0 md:w-[90px] 2xl:w-[100px]" />
 
                             <img src="../../public/assets/images/s5.svg" alt="svg"
                                 className="opacity-0 absolute transition-all duration-500 ease-in-out bottom-0 translate-x-5
@@ -904,7 +904,7 @@ function Home() {
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
                     </p>
 
-                    <div className="grid grid-cols-12 gap-y-6 gap-x-6">
+                    <div className="grid grid-cols-12 gap-y-6 gap-x-6 mt-10">
                         {
                             doctors?.map((v) => (
                                 <div className="col-span-12 min-[576px]:col-span-6 min-[992px]:col-span-3">
@@ -1041,10 +1041,6 @@ function Home() {
                 </div>
             </section>
 
-            <a href="#" className={`bg-[#88C250] text-white  w-11 h-11  justify-center items-center text-[22px] 
-                fixed right-7 bottom-10 z-10 ${scrollPosition ? 'flex' : 'hidden'} hover:bg-[#081828] ease-in-out duration-400 hover:-translate-y-2`}>
-                <IoIosArrowUp />
-            </a>
         </main>
     )
 }
