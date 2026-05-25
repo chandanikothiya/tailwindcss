@@ -997,7 +997,7 @@ function Home() {
                                 </div>
                             </div>
 
-                            <div className="col-span-12 grid grid-cols-12 group ">
+                            <div className="col-span-12 grid grid-cols-12 group">
                                 <div className="col-span-12 min-[768px]:col-span-5 overflow-hidden">
                                     <img src="../../../public/assets/images/blog2.jpg" alt="" className="w-[100%] h-[100%] object-cover object-center duration-500 group-hover:scale-110" />
                                 </div>

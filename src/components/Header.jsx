@@ -34,8 +34,8 @@ function Header() {
                         <li className="navitem relative group">
                             <a href="#" className="link" >Pages</a>
                             <ul className="absolute submenu top-[87px] hidden group-hover:block">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Appointment</a></li>
+                                <li><NavLink to={'/aboutus'}>About Us</NavLink></li>
+                                <li><NavLink to={'/appoinment'}>Appointment</NavLink></li>
                                 <li><a href="#">Time Table</a></li>
                                 <li><a href="#">Testimonials</a></li>
                                 <li><a href="#">Project Deatil</a></li>
@@ -56,7 +56,7 @@ function Header() {
                         <li className="navitem group"><a href="#" className="link">Doctore</a>
                             <ul className="absolute submenu top-[87] hidden group-hover:block">
                                 <li><NavLink to={'/doctore'}>Doctore</NavLink></li>
-                                <li><a href="#">Doctore Detail</a></li>
+                                <li><NavLink to={'/doctoredetail'}>Doctore Detail</NavLink></li>
                             </ul>
                         </li>
                         <li className="navitem group"><a href="#" className="link">Blog</a>
@@ -65,7 +65,7 @@ function Header() {
                                 <li><a href="#">Blog Single</a></li>
                             </ul>
                         </li>
-                        <li className="navitem"><a href="#" className="link">Contact</a></li>
+                        <li className="navitem"><NavLink to={'/contact'} className="link">Contact</NavLink></li>
                     </ul>
                 </div>
 
