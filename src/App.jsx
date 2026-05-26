@@ -13,6 +13,10 @@ import DoctoreDetail from './container/DoctoreDetail'
 import Contact from './container/Contact'
 import AboutUs from './container/AboutUs'
 import Appoinment from './container/Appoinment'
+import Timetable from './container/Timetable'
+import Testimonials from './container/Testimonials'
+import Pricing from './container/Pricing'
+import Projectdetail from './container/Projectdetail'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,6 +33,10 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/appoinment' element={<Appoinment />} />
+        <Route path='/timetable' element={<Timetable />} />
+        <Route path='/testimonials' element={<Testimonials />} />
+        <Route path='/pricing' element={<Pricing />} />
+        <Route path='/projectdetail' element={<Projectdetail />} />
       </Routes>
       <Footer />
     </>

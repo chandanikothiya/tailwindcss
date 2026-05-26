@@ -36,10 +36,10 @@ function Header() {
                             <ul className="absolute submenu top-[87px] hidden group-hover:block">
                                 <li><NavLink to={'/aboutus'}>About Us</NavLink></li>
                                 <li><NavLink to={'/appoinment'}>Appointment</NavLink></li>
-                                <li><a href="#">Time Table</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                                <li><a href="#">Project Deatil</a></li>
-                                <li><a href="#">Our Pricing</a></li>
+                                <li><NavLink to={'/timetable'}>Time Table</NavLink></li>
+                                <li><NavLink to={'/testimonials'}>Testimonials</NavLink></li>
+                                <li><NavLink to={'/projectdetail'}>Project Deatil</NavLink></li>
+                                <li><NavLink to={'/pricing'}>Our Pricing</NavLink></li>
                                 <li><a href="#">Sign Up</a></li>
                                 <li><a href="#">Login</a></li>
                                 <li><a href="#">Faq</a></li>
@@ -93,12 +93,12 @@ function Header() {
                             {
                                 openmenu === 'pages' &&
                                 <ul className="ml-5">
-                                    <li><a href="#" className="block py-3 ">About Us</a></li>
-                                    <li><a href="#" className="block py-3 ">Appointment</a></li>
-                                    <li><a href="#" className="block py-3 ">Time Table</a></li>
-                                    <li><a href="#" className="block py-3 ">Testimonials</a></li>
-                                    <li><a href="#" className="block py-3 ">Project Deatil</a></li>
-                                    <li><a href="#" className="block py-3 ">Our Pricing</a></li>
+                                    <li><NavLink to={'/aboutus'} className="block py-3 ">About Us</NavLink></li>
+                                    <li><NavLink to={'/appoinment'} className="block py-3 ">Appointment</NavLink></li>
+                                    <li><NavLink to={'/timetable'} className="block py-3 ">Time Table</NavLink></li>
+                                    <li><NavLink to={'/testimonials'} className="block py-3 ">Testimonials</NavLink></li>
+                                    <li><NavLink to={'/projectdetail'} className="block py-3 ">Project Deatil</NavLink></li>
+                                    <li><NavLink to={'/pricing'} className="block py-3 ">Our Pricing</NavLink></li>
                                     <li><a href="#" className="block py-3 ">Sign Up</a></li>
                                     <li><a href="#" className="block py-3 ">Login</a></li>
                                     <li><a href="#" className="block py-3 ">Faq</a></li>
@@ -118,7 +118,7 @@ function Header() {
                                 openmenu === 'services' &&
                                 <ul className="ml-5">
                                     <li><NavLink to={'/services'} className="block py-3 ">Services</NavLink></li>
-                                    <li><a href="#" className="block py-3 ">Services Details</a></li>
+                                    <li><NavLink to={'/service-detail'} className="block py-3 ">Services Details</NavLink></li>
                                 </ul>
                             }
 
@@ -133,8 +133,8 @@ function Header() {
                             {
                                 openmenu === 'doctore' &&
                                 <ul className="ml-5">
-                                    <li><a href="#" className="block py-3 ">Doctore</a></li>
-                                    <li><a href="#" className="block py-3 ">Doctore Details</a></li>
+                                    <li><NavLink to={'/doctore'} className="block py-3 ">Doctore</NavLink></li>
+                                    <li><NavLink to={'/doctoredetail'} className="block py-3 ">Doctore Detail</NavLink></li>
                                 </ul>
                             }
                         </li>

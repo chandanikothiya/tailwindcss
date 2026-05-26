@@ -358,6 +358,14 @@ select {
     background-color: #88C250;
 }
 
+.test-page .swiper-pagination-bullet{
+    background-color: black;
+}
+
+.test-page .swiper-pagination-bullet-active {
+    background-color: #88C250;
+}
+
 .social a {
     display: inline-block;
     margin-left: 18px;
@@ -486,6 +494,27 @@ select {
 
 .formrow {
     @apply flex border-1 border-gray-200 w-full p-3 text-gray-400 justify-between items-center
+}
+
+
+table th {
+    @apply py-3 px-16 text-white font-poppins font-normal text-[14px] text-center
+}
+
+table tr{
+    @apply border-b-1 border-b-gray-200
+}
+
+table tr td{
+    @apply text-center py-[35px] border-r-1 border-r-gray-200
+}
+
+table tr td h4{
+    @apply text-[16px] font-merriweather font-[600]
+}
+
+table tr td span{
+    @apply text-[14px] font-merriweather text-[#838181] font-poppins font-[400]
 }
 /* #top {
     height: 366px;
