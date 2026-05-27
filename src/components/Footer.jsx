@@ -83,15 +83,15 @@ function Footer() {
                             <div className="four col-span-12 pb-9 lg:py-15 md:col-span-6 lg:col-span-3 lg:px-3 xl:px-10">
                                 <h3 className="text-[20px] font-medium">Contact</h3>
                                 <div className="flex items-start gap-5 mt-6">
-                                    <i class="fa-solid fa-location-dot"></i>
+                                    <i className="fa-solid fa-location-dot"></i>
                                     <p className="text-[14px]">23 New Design Str, Lorem Upsum 10 Hudson Yards, USA</p>
                                 </div>
                                 <div className="flex items-center gap-5 mt-3">
-                                    <i class="fa-solid fa-phone"></i>
+                                    <i className="fa-solid fa-phone"></i>
                                     <p className="text-[14px]">Tel. +(123) 1800-567-8990</p>
                                 </div>
                                 <div className="flex items-center gap-5 mt-3">
-                                    <i class="fa-solid fa-envelope"></i>
+                                    <i className="fa-solid fa-envelope"></i>
                                     <p className="text-[14px]">Mail. support@classigrids.com</p>
                                 </div>
                             </div>

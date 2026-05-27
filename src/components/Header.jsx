@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { VscMenu } from "react-icons/vsc";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosArrowUp } from "react-icons/io";
 
 
@@ -11,6 +11,7 @@ function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [openmenu, setOpenmenu] = useState("")
     const [scrollPosition, setScrollPosition] = useState(false);
+    const navigation = useNavigate();
 
     const toggle = (menu) => {
         setOpenmenu(openmenu === menu ? '' : menu)
@@ -40,10 +41,10 @@ function Header() {
                                 <li><NavLink to={'/testimonials'}>Testimonials</NavLink></li>
                                 <li><NavLink to={'/projectdetail'}>Project Deatil</NavLink></li>
                                 <li><NavLink to={'/pricing'}>Our Pricing</NavLink></li>
-                                <li><a href="#">Sign Up</a></li>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Faq</a></li>
-                                <li><a href="#">Mail success</a></li>
+                                <li><NavLink to={'/signup'}>Sign Up</NavLink></li>
+                                <li><NavLink to={'/login'}>Login</NavLink></li>
+                                <li><NavLink to={'/faq'}>Faq</NavLink></li>
+                                <li><NavLink to={'/mailsuccess'}>Mail success</NavLink></li>    
                                 <li><a href="#">404 Error</a></li>
                             </ul>
                         </li>
@@ -99,7 +100,7 @@ function Header() {
                                     <li><NavLink to={'/testimonials'} className="block py-3 ">Testimonials</NavLink></li>
                                     <li><NavLink to={'/projectdetail'} className="block py-3 ">Project Deatil</NavLink></li>
                                     <li><NavLink to={'/pricing'} className="block py-3 ">Our Pricing</NavLink></li>
-                                    <li><a href="#" className="block py-3 ">Sign Up</a></li>
+                                    <li><NavLink to={'/signup'} className="block py-3 ">Sign Up</NavLink></li>
                                     <li><a href="#" className="block py-3 ">Login</a></li>
                                     <li><a href="#" className="block py-3 ">Faq</a></li>
                                     <li><a href="#" className="block py-3 ">Mail success</a></li>

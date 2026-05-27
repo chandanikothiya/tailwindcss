@@ -516,6 +516,46 @@ table tr td h4{
 table tr td span{
     @apply text-[14px] font-merriweather text-[#838181] font-poppins font-[400]
 }
+
+.form-social a{
+    @apply flex items-center text-[13px] font-poppins font-medium gap-3 py-[15px] px-[14px] border-1 border-gray-200 justify-center
+}
+
+/* .form-group{
+    @apply px-[20px] py-[8px] border-1 border-gray-200
+} */
+
+#registration-form form input {
+    @apply w-full px-[20px] py-[12px] border-1 border-gray-200 mb-[15px]
+}
+
+.checkbox-input:checked{
+    accent-color: #88C250;
+    color: white;
+}
+
+.alt-option{
+    position: relative;
+}
+
+.alt-option::before{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 1px;
+    width: 100%;
+    background: #eee;
+    content: "";
+    z-index: -1;
+}
+
+.css-1808mag-MuiPaper-root-MuiAccordion-root{
+    box-shadow:none !important;
+    border: solid 1px #e9e6e6;
+    outline: 0;
+}
+
+
 /* #top {
     height: 366px;
     width:100%  
