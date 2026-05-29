@@ -218,7 +218,6 @@ select {
 .footer::before {
     content: "";
     @apply absolute inset-0;
-
     background: rgba(0, 104, 56, 0.88);
     /* background-color: #ffffff4b; */
     z-index: 1;
@@ -242,12 +241,16 @@ select {
     @apply rounded-2xl
 }
 
-.third a:hover {
-    @apply underline
+.third a {
+    @apply cursor-auto
 }
 
 .third {
     font-weight: 400;
+}
+
+.third-footer a:hover {
+    @apply underline
 }
 
 .mediicone {
@@ -358,7 +361,7 @@ select {
     background-color: #88C250;
 }
 
-.test-page .swiper-pagination-bullet{
+.test-page .swiper-pagination-bullet {
     background-color: black;
 }
 
@@ -452,8 +455,7 @@ select {
     @apply text-[#006838] mr-4
 }
 
-.contact-form input,.contact-form textarea
- {
+.contact-form input, .contact-form textarea {
     @apply border-1 border-gray-200 w-full p-3 text-gray-700
 }
 
@@ -465,31 +467,29 @@ select {
     @apply mt-[35px]
 }
 
-.info-icone{
-    @apply text-[25px] border-1 border-gray-200  text-[#006838] p-3 hover:bg-[#006838] hover:text-white
+.info-icone {
+    @apply text-[25px] border-1 border-gray-200 text-[#006838] p-3 hover:bg-[#006838] hover:text-white
 }
 
 
-.text-info h3{
+.text-info h3 {
     @apply text-[16px] mb-[8px]
 }
 
-.text-info p{
+.text-info p {
     @apply text-[15px] text-[#838181]
 }
 
-#cilent-logo-section img{
+#cilent-logo-section img {
     @apply opacity-50 hover:opacity-[100%]
 }
 
-.appoinmentform input,.appoinmentform textarea{
+.appoinmentform input, .appoinmentform textarea {
     @apply text-gray-700 w-[85%]
-
 }
 
-.appoinmentform textarea{
+.appoinmentform textarea {
     @apply focus:outline-0
-
 }
 
 .formrow {
@@ -501,23 +501,23 @@ table th {
     @apply py-3 px-16 text-white font-poppins font-normal text-[14px] text-center
 }
 
-table tr{
+table tr {
     @apply border-b-1 border-b-gray-200
 }
 
-table tr td{
+table tr td {
     @apply text-center py-[35px] border-r-1 border-r-gray-200
 }
 
-table tr td h4{
+table tr td h4 {
     @apply text-[16px] font-merriweather font-[600]
 }
 
-table tr td span{
+table tr td span {
     @apply text-[14px] font-merriweather text-[#838181] font-poppins font-[400]
 }
 
-.form-social a{
+.form-social a {
     @apply flex items-center text-[13px] font-poppins font-medium gap-3 py-[15px] px-[14px] border-1 border-gray-200 justify-center
 }
 
@@ -529,16 +529,16 @@ table tr td span{
     @apply w-full px-[20px] py-[12px] border-1 border-gray-200 mb-[15px]
 }
 
-.checkbox-input:checked{
+.checkbox-input:checked {
     accent-color: #88C250;
     color: white;
 }
 
-.alt-option{
+.alt-option {
     position: relative;
 }
 
-.alt-option::before{
+.alt-option::before {
     position: absolute;
     left: 0;
     top: 50%;
@@ -549,13 +549,81 @@ table tr td span{
     z-index: -1;
 }
 
-.css-1808mag-MuiPaper-root-MuiAccordion-root{
-    box-shadow:none !important;
+.css-1808mag-MuiPaper-root-MuiAccordion-root {
+    box-shadow: none !important;
     border: solid 1px #e9e6e6;
     outline: 0;
 }
 
+.tags a {
+    @apply px-[15px] py-[7px] block border-1 border-gray-200 w-fit hover:bg-[#006838] hover:text-white
+}
 
+.pagination {
+    @apply flex gap-2 flex-wrap
+}
+
+.pagination li {
+    @apply py-2 px-[20px] border-1 border-gray-200 hover:bg-[#006838] hover:text-white
+}
+
+.pactive {
+    @apply bg-[#006838] text-white
+}
+
+.socialmediapost ul li {
+    position: relative;
+    list-style: none;
+}
+
+.socialmediapost ul li a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialmediapost ul li a span {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #006838;
+    color: #fff;
+
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    font-size: 13px;
+    line-height: 1;
+
+    display: none;
+    white-space: nowrap;
+}
+
+.socialmediapost ul li a span::before {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -10px;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: #006838 transparent transparent transparent;
+}
+
+.socialmediapost ul li:hover a span {
+    display: block;
+}
+
+
+.replaybtn{
+    @apply bg-[#006838] text-white py-[8px] px-[20px] flex gap-x-1 items-center grow-0 h-fit hover:bg-[#88C250]
+}
 /* #top {
     height: 366px;
     width:100%  

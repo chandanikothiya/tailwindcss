@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
     return (
@@ -53,16 +54,16 @@ function Footer() {
                             <div className="first col-span-12 md:pt-9 lg:py-15 md:col-span-6 lg:col-span-3 lg:px-3 xl:px-10 lg:border-r-1 border-mist-400 pr-4">
                                 <h3 className="text-[20px] font-medium">Useful Links</h3>
                                 <ul className="grid grid-cols-12 text-[14px] gap-y-2 font-medium mt-5 gap-x-6">
-                                    <li className="col-span-12 md:col-span-6"><a href="#">About</a></li>
-                                    <li className="col-span-12 md:col-span-6"><a href="#">Appoinment</a></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/aboutus'}>About</NavLink></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/appoinment'}>Appoinment</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Team</a></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Gallery</a></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Before After</a></li>
-                                    <li className="col-span-12 md:col-span-6"><a href="#">Timetable</a></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/timetable'}>Timetable</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Cost calculator</a></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Department</a></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Working Hours</a></li>
-                                    <li className="col-span-12 md:col-span-6"><a href="#">Contact Us</a></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/contact'}>Contact Us</NavLink></li>
                                 </ul>
                             </div>
 
@@ -102,7 +103,7 @@ function Footer() {
                 </div>
 
                 <div className="containercust py-8">
-                    <div className="third text-white flex justify-center gap-y-2  md:justify-between text-[14px] flex-wrap">
+                    <div className="third-footer text-white flex justify-center gap-y-2  md:justify-between text-[14px] flex-wrap">
                         <p>Designed and Developed by <a href="#">GrayGrids</a></p>
                          <div className="flex gap-4">
                             <a href="#">Terms & Conditions</a>
@@ -111,7 +112,6 @@ function Footer() {
                          </div>
                     </div>
                 </div>
-
             </div>
         </footer>
     )

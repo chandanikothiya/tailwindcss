@@ -21,17 +21,21 @@ import Signup from './container/Signup'
 import Login from './container/Login'
 import FAQ from './container/FAQ'
 import MailSuccess from './container/MailSuccess'
+import Notfound from './container/Notfound'
+import Bloggrid from './container/Bloggrid'
+import Blogsingle from './container/Blogsingle'
 
 function App() {
   const [count, setCount] = useState(0);
 
   const location = useLocation();
-  const hideLayout = location.pathname === "/mailsuccess";
+  //console.log("location",location.pathname)
+  const hideLayout = location.pathname === "/mailsuccess" || location.pathname === "/notfound";
 
 
   return (
     <>
-       {!hideLayout && <Header />}
+      {!hideLayout && <Header />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/services' element={<Services />} />
@@ -49,8 +53,11 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/faq' element={<FAQ />} />
         <Route path="/mailsuccess" element={<MailSuccess />} />
+        <Route path="/notfound" element={<Notfound />} />
+        <Route path="/bloggrid" element={<Bloggrid />} />
+        <Route path="/blogsingle" element={<Blogsingle />} />
       </Routes>
-       {!hideLayout && <Footer />}
+      {!hideLayout && <Footer />}
     </>
   )
 }

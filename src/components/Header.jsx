@@ -44,8 +44,8 @@ function Header() {
                                 <li><NavLink to={'/signup'}>Sign Up</NavLink></li>
                                 <li><NavLink to={'/login'}>Login</NavLink></li>
                                 <li><NavLink to={'/faq'}>Faq</NavLink></li>
-                                <li><NavLink to={'/mailsuccess'}>Mail success</NavLink></li>    
-                                <li><a href="#">404 Error</a></li>
+                                <li><NavLink to={'/mailsuccess'}>Mail success</NavLink></li>
+                                <li><NavLink to={'/notfound'}>404 Error</NavLink></li>
                             </ul>
                         </li>
                         <li className="navitem group"><a href="#" className="link">Services</a>
@@ -62,8 +62,8 @@ function Header() {
                         </li>
                         <li className="navitem group"><a href="#" className="link">Blog</a>
                             <ul className="absolute submenu top-[87] hidden group-hover:block">
-                                <li><a href="#">Blog Grid Siderbar</a></li>
-                                <li><a href="#">Blog Single</a></li>
+                                <li><NavLink to={'/bloggrid'}>Blog Grid Siderbar</NavLink></li>
+                                <li><NavLink to={'/blogsingle'}>Blog Single</NavLink></li>
                             </ul>
                         </li>
                         <li className="navitem"><NavLink to={'/contact'} className="link">Contact</NavLink></li>
@@ -76,7 +76,9 @@ function Header() {
                     </button>
                 </div>
 
-                <button className="btn sm:py-3 min-[992px]:py-5 hidden md:block !z-10">Book Appointment</button>
+                <NavLink to={'/appoinment'}>
+                    <button className="btn sm:py-3 min-[992px]:py-5 hidden md:block !z-10">Book Appointment</button>
+                </NavLink>
             </div>
 
             {

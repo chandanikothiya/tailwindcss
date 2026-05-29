@@ -990,8 +990,8 @@ function Home() {
                                     <div className="user-info text-[#888888] flex gap-3 items-center mt-8">
                                         <img src="../../../public/assets/images/comment1.jpg" alt="" className="w-[30px] h-[30px] rounded-full" />
 
-                                        <h5>Alice Williams</h5>
-                                        <p className="ml-4"> 08 Mar 2023</p>
+                                        <h5 className="cursor-default hover:text-[#006838]">Alice Williams</h5>
+                                        <p className="cursor-default hover:text-[#006838]"> 08 Mar 2023</p>
                                     </div>
 
                                 </div>
@@ -1009,8 +1009,8 @@ function Home() {
                                     <div className="user-info text-[#888888] flex gap-3 items-center mt-8">
                                         <img src="../../../public/assets/images/comment2.jpg" alt="" className="w-[30px] h-[30px] rounded-full" />
 
-                                        <h5>Alrado Deyam</h5>
-                                        <p className="ml-4">10 Feb 2023</p>
+                                        <h5 className="cursor-default hover:text-[#006838]">Alrado Deyam</h5>
+                                        <p className="ml-4 cursor-default hover:text-[#006838]">10 Feb 2023</p>
                                     </div>
 
                                 </div>
@@ -1030,10 +1030,9 @@ function Home() {
                                 <div className="user-info text-white flex gap-3 items-center mt-8">
                                     <img src="../../../public/assets/images/comment2.jpg" alt="" className="w-[30px] h-[30px] rounded-full" />
 
-                                    <h5>Alrado Deyam</h5>
-                                    <p className="ml-4">10 Feb 2023</p>
+                                    <h5 className="cursor-default hover:text-[#ecf0ee93]">Alrado Deyam</h5>
+                                    <p className="ml-4 cursor-default hover:text-[#ecf0ee93]">10 Feb 2023</p>
                                 </div>
-
                             </div>
                         </div>
 
