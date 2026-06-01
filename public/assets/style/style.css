@@ -76,8 +76,27 @@
     @apply w-full;
 }
 
+
+.navitem:has(.active) {
+    @apply text-[#88C250];
+}
+
+.navitem:has(.active)::before {
+    @apply w-full;
+}
+
+.navitem:has(.submenu .active)::before {
+    @apply w-full;
+}
+
+/* .navitem:has(.submenu .active) > a.link {
+    color: #88C250;
+} */
+
+
+
 .link {
-    @apply block py-[33px]
+    @apply block py-[33px];
 }
 
 .submenu {
@@ -85,7 +104,7 @@
 }
 
 .submenu li {
-    @apply relative overflow-hidden z-10 px-3 py-[11px] my-[7px] transition-colors duration-300;
+    @apply relative overflow-hidden z-10 px-3 py-[11px] my-[7px] transition-colors duration-300 text-[#888];
 }
 
 .submenu li::before {
@@ -103,6 +122,18 @@
 
 .reslink {
     @apply block py-3 font-medium pl-1
+}
+
+.mobile-menu:has(.page-active){
+    @apply text-[#88C250]
+}
+
+.mobile-menu ul {
+    @apply text-black;
+}
+
+.ractive {
+    @apply text-[#88C250]
 }
 
 .resnavitem {
@@ -621,9 +652,10 @@ table tr td span {
 }
 
 
-.replaybtn{
+.replaybtn {
     @apply bg-[#006838] text-white py-[8px] px-[20px] flex gap-x-1 items-center grow-0 h-fit hover:bg-[#88C250]
 }
+
 /* #top {
     height: 366px;
     width:100%  

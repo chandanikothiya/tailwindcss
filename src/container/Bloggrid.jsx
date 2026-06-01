@@ -1,5 +1,6 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
+import { IoCalendarOutline } from "react-icons/io5";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 
@@ -182,6 +183,51 @@ function Bloggrid() {
                                         <input type="text" name="search" id="search" placeholder="Search Here..." className="w-[80%]" />
                                         <PiMagnifyingGlassBold className="text-[40px] bg-[#006838] text-white p-3" />
                                     </form>
+                                </div>
+                            </div>
+
+                            <div className="siderbar mt-[30px]">
+                                <div className="search siderbar-card">
+                                    <h3>Popular Feeds</h3>
+
+                                    <ul className="mt-[20px] text-[#838181]">
+                                        <li className="flex gap-x-5 py-4 border-b-1 border-b-gray-200">
+                                            <img src="../../../public/assets/images/blog1.jpg" alt="blog1" className="w-[80px]" />
+
+                                            <div>
+                                                <a href="#" className="text-[13px] font-poppins font-[500] text-black  hover:text-[#006838]">Your Affect How Well Your Mind Functions</a>
+                                                <span className="flex items-center text-[13px] font-poppins mt-3">
+                                                    <IoCalendarOutline />
+                                                    05th Nov 2023
+                                                </span>
+                                            </div>
+                                        </li>
+
+                                        <li className="flex gap-x-5 py-4 border-b-1 border-b-gray-200">
+                                            <img src="../../../public/assets/images/blog2.jpg" alt="blog1" className="w-[80px]" />
+
+                                            <div>
+                                                <a href="#" className="text-[13px] font-poppins font-[500] text-black  hover:text-[#006838]">What Know About Pain Can Hurt Everyone</a>
+                                                <span className="flex items-center text-[13px] font-poppins mt-3">
+                                                    <IoCalendarOutline />
+                                                    24th March 2023
+                                                </span>
+                                            </div>
+                                        </li>
+
+                                        <li className="flex gap-x-5 py-4">
+                                            <img src="../../../public/assets/images/di2.jpg" alt="blog1" className="w-[80px]" />
+
+                                            <div>
+                                                <a href="#" className="text-[13px] font-poppins font-[500] text-black  hover:text-[#006838]">We Are Provide Update Nano Technology Care</a>
+                                                <span className="flex items-center text-[13px] font-poppins mt-3">
+                                                    <IoCalendarOutline />
+                                                     30th Jan 2023
+                                                </span>
+                                            </div>
+                                        </li>
+
+                                    </ul>
                                 </div>
                             </div>
 

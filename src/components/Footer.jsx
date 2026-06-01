@@ -56,7 +56,7 @@ function Footer() {
                                 <ul className="grid grid-cols-12 text-[14px] gap-y-2 font-medium mt-5 gap-x-6">
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/aboutus'}>About</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/appoinment'}>Appoinment</NavLink></li>
-                                    <li className="col-span-12 md:col-span-6"><a href="#">Team</a></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/doctore'}>Team</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Gallery</a></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Before After</a></li>
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/timetable'}>Timetable</NavLink></li>
@@ -96,7 +96,6 @@ function Footer() {
                                     <p className="text-[14px]">Mail. support@classigrids.com</p>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>

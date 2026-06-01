@@ -24,6 +24,8 @@ import MailSuccess from './container/MailSuccess'
 import Notfound from './container/Notfound'
 import Bloggrid from './container/Bloggrid'
 import Blogsingle from './container/Blogsingle'
+import Blogsinglesider from './container/Blogsinglesider'
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,7 +33,6 @@ function App() {
   const location = useLocation();
   //console.log("location",location.pathname)
   const hideLayout = location.pathname === "/mailsuccess" || location.pathname === "/notfound";
-
 
   return (
     <>
@@ -56,6 +57,7 @@ function App() {
         <Route path="/notfound" element={<Notfound />} />
         <Route path="/bloggrid" element={<Bloggrid />} />
         <Route path="/blogsingle" element={<Blogsingle />} />
+        <Route path="/blogsinglesider" element={<Blogsinglesider />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>
