@@ -105,9 +105,9 @@ function Footer() {
                     <div className="third-footer text-white flex justify-center gap-y-2  md:justify-between text-[14px] flex-wrap">
                         <p>Designed and Developed by <a href="#">GrayGrids</a></p>
                          <div className="flex gap-4">
-                            <a href="#">Terms & Conditions</a>
+                            <NavLink to={'/termscondition'}>Terms & Conditions</NavLink>
                             <a href="#">FAQ</a>
-                            <a href="#">Privacy Policy</a>
+                            <NavLink to={'/termscondition'}>Privacy Policy</NavLink>
                          </div>
                     </div>
                 </div>

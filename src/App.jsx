@@ -25,6 +25,7 @@ import Notfound from './container/Notfound'
 import Bloggrid from './container/Bloggrid'
 import Blogsingle from './container/Blogsingle'
 import Blogsinglesider from './container/Blogsinglesider'
+import TermsCondition from './container/TermsCondition'
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
         <Route path="/bloggrid" element={<Bloggrid />} />
         <Route path="/blogsingle" element={<Blogsingle />} />
         <Route path="/blogsinglesider" element={<Blogsinglesider />} />
+        <Route path="/termscondition" element={<TermsCondition />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>
