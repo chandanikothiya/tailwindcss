@@ -106,8 +106,8 @@ function FAQ() {
                             <Accordion expanded={expanded === "panel4"}
                                 onChange={handleChange("panel4")} className="mt-5">
                                 <AccordionSummary
-                                     expandIcon={<RiArrowUpSLine className={`${expanded === 'panel3' ? '!text-white' : ''}`}/>}
-                                    className={`${expanded === 'panel3' ? '!bg-[#006838] !text-white' : ''}`}
+                                     expandIcon={<RiArrowUpSLine className={`${expanded === 'panel4' ? '!text-white' : ''}`}/>}
+                                    className={`${expanded === 'panel4' ? '!bg-[#006838] !text-white' : ''}`}
                                 >
                                     <Typography component="span" className="flex items-center gap-x-2 !text-[13px] md:!text-[15px] font-merriweather !font-[600]">
                                         <span className={`block flex items-center justify-center flex-shrink-0  border-1 border-gray-200 rounded-full  w-[30px] h-[30px] ${expanded === 'panel4' ? '!bg-white !text-[#006838]' : ''}`}>
@@ -126,7 +126,6 @@ function FAQ() {
                                     </Typography>
                                 </AccordionDetails>
                             </Accordion>
-
 
                             <Accordion expanded={expanded === "panel5"}
                                 onChange={handleChange("panel5")} className="mt-5">

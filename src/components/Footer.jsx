@@ -57,11 +57,11 @@ function Footer() {
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/aboutus'}>About</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/appoinment'}>Appoinment</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/doctore'}>Team</NavLink></li>
-                                    <li className="col-span-12 md:col-span-6"><a href="#">Gallery</a></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/gallery'}>Gallery</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Before After</a></li>
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/timetable'}>Timetable</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Cost calculator</a></li>
-                                    <li className="col-span-12 md:col-span-6"><a href="#">Department</a></li>
+                                    <li className="col-span-12 md:col-span-6"><NavLink to={'/deparment'}>Department</NavLink></li>
                                     <li className="col-span-12 md:col-span-6"><a href="#">Working Hours</a></li>
                                     <li className="col-span-12 md:col-span-6"><NavLink to={'/contact'}>Contact Us</NavLink></li>
                                 </ul>
@@ -106,8 +106,8 @@ function Footer() {
                         <p>Designed and Developed by <a href="#">GrayGrids</a></p>
                          <div className="flex gap-4">
                             <NavLink to={'/termscondition'}>Terms & Conditions</NavLink>
-                            <a href="#">FAQ</a>
-                            <NavLink to={'/termscondition'}>Privacy Policy</NavLink>
+                            <NavLink to={'/faq'}>FAQ</NavLink>
+                            <NavLink to={'/privacypolicy'}>Privacy Policy</NavLink>
                          </div>
                     </div>
                 </div>

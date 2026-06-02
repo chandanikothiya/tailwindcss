@@ -660,6 +660,26 @@ table tr td span {
     @apply bg-[#006838] text-white py-[8px] px-[20px] flex gap-x-1 items-center grow-0 h-fit hover:bg-[#88C250]
 }
 
+#galleryp img{
+    @apply w-full rounded-lg hover:scale-130 hover:rounded-lg duration-500
+}
+
+.gimg {
+     @apply w-full rounded-lg overflow-hidden
+}
+
+.dimg{
+    @apply w-full h-[352px]
+}
+
+.dimg img{
+    @apply w-full h-full object-fill
+}
+
+#department h4 {
+    @apply text-[18px] mt-3 text-[#006838] font-medium
+}
+
 /* #top {
     height: 366px;
     width:100%  

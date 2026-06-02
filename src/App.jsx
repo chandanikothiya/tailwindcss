@@ -26,6 +26,9 @@ import Bloggrid from './container/Bloggrid'
 import Blogsingle from './container/Blogsingle'
 import Blogsinglesider from './container/Blogsinglesider'
 import TermsCondition from './container/TermsCondition'
+import Privacypolicy from './container/Privacypolicy'
+import Gallery from './container/Gallery'
+import Department from './container/Department'
 
 
 function App() {
@@ -60,6 +63,9 @@ function App() {
         <Route path="/blogsingle" element={<Blogsingle />} />
         <Route path="/blogsinglesider" element={<Blogsinglesider />} />
         <Route path="/termscondition" element={<TermsCondition />} />
+        <Route path="/privacypolicy" element={<Privacypolicy />} />
+         <Route path="/gallery" element={<Gallery />} />
+         <Route path="/deparment" element={<Department />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>
