@@ -29,6 +29,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { TfiAgenda } from "react-icons/tfi";
 import { BiHomeCircle } from "react-icons/bi";
+import { NavLink } from "react-router-dom";
 
 
 function Home() {
@@ -277,8 +278,12 @@ function Home() {
                                                 <p className="text-white leading-[28px]  my-5 text-[15px] min-[576px]:leading-[22.5px] min-[576px]:text-[16px]">{v.subtitle}</p>
 
                                                 <div className="flex items-center flex-col gap-y-3  min-[768px]:gap-x-3 min-[768px]:flex-row mt-10 min-[768px]:w-fit  min-[768px]:justify-start">
-                                                    <button className="btnh my-0 w-[200px] min-[576px]:w-[300px] py-3 min-[992px]:py-4 min-[768px]:w-fit">Book Appointment</button>
-                                                    <button className="btnh w-[200px] min-[576px]:w-[300px] py-3 min-[992px]:py-4 min-[768px]:w-fit">About Us</button>
+                                                    <NavLink to={'/appoinment'}>
+                                                        <button className="btnh my-0 w-[200px] min-[576px]:w-[300px] py-3 min-[992px]:py-4 min-[768px]:w-fit">Book Appointment</button>
+                                                    </NavLink>
+                                                    <NavLink to={'/aboutus'}>
+                                                        <button className="btnh w-[200px] min-[576px]:w-[300px] py-3 min-[992px]:py-4 min-[768px]:w-fit">About Us</button>
+                                                    </NavLink>
                                                 </div>
                                             </div>
                                             <div className="hidden  min-[992px]:block min-[992px]:w-[100%] min-[992px]:h-[80%] 2xl:w-[100%] 2xl:h-[100%]  self-end">
@@ -293,7 +298,7 @@ function Home() {
                     </Swiper>
 
                     <img src="../../public/assets/images/s4.svg" alt="svg" className="hidden absolute top-50 -left-13 min-[992px]:block md:w-[90px] 2xl:w-[120px] lg:top-35 2xl:top-50" />
-                    <img src="../../public/assets/images/s5.svg" alt="svg" className="hidden absolute bottom-15 min-[992px]:block md:w-[20px] 2x:lw-[25px] lg:bottom-3 2xl:bottom-15 md:right-3 2xl:right-10" />
+                    <img src="../../public/assets/images/s5.svg" alt="svg" className="hidden absolute !bottom-12 min-[992px]:block md:w-[28px] 2x:lw-[25px] lg:bottom-3 2xl:bottom-15 md:right-3 2xl:right-10" />
 
                 </div>
             </section>
@@ -1039,7 +1044,6 @@ function Home() {
                     </div>
                 </div>
             </section>
-
         </main>
     )
 }

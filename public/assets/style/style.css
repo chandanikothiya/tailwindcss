@@ -14,7 +14,7 @@
 
 
 .btn {
-    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden my-4 z-0
+    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden my-4 z-0  text-[#4b9209]
 }
 
 
@@ -669,15 +669,27 @@ table tr td span {
 }
 
 .dimg{
-    @apply w-full h-[352px]
+    @apply w-full h-[352px] overflow-hidden
 }
 
 .dimg img{
-    @apply w-full h-full object-fill
+    @apply w-full h-full object-cover object-top hover:scale-120 duration-500
 }
 
 #department h4 {
     @apply text-[18px] mt-3 text-[#006838] font-medium
+}
+
+.login li {
+    @apply px-2 py-1 cursor-default
+}
+
+.login input {
+    @apply w-full border-1 border-gray-200 py-2 px-3 mt-2  bg-[#eaf8dd] rounded-md
+}
+
+.lactive {
+    @apply text-blue-600    
 }
 
 /* #top {
