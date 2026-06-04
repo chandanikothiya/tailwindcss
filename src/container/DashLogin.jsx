@@ -14,17 +14,17 @@ function DashLogin() {
     return (
         <div className="deshlogin min-h-screen">
             <div className="containercust min-h-screen">
-                <div className="grid grid-cols-12 min-h-screen gap-x-10">
+                <div className="grid grid-cols-12 min-h-screen lg:gap-x-10">
 
-                    <div className="loginimg col-span-6">
+                    <div className="loginimg col-span-6 hidden lg:block">
                         <div className="flex items-center h-full">
                             <img src="../../../public/assets/images/Medicine-amico.png" alt="" className="w-full" />
                         </div>
                     </div>
 
-                    <div className="col-span-6">
+                    <div className="col-span-12 md:col-span-8 md:col-start-3 lg:col-start-7 lg:col-span-6">
                         <div className="flex items-center h-full">
-                            <div className="login h-fit px-10 py-15 shadow-2xl ml-25 w-full">
+                            <div className="login h-fit px- md:px-10 py-5 md:py-10 xl:py-15 shadow-2xl xl:ml-25 w-full">
                                 <h3 className="text-[30px] font-poppins font-medium text-center">Login</h3>
 
                                 <ul className="flex border-1 border-gray-200 w-fit  px-2 rounded-md mx-auto my-7">
@@ -45,16 +45,14 @@ function DashLogin() {
                                         <input type="text" name="nurseid" id="nurseid" />
                                     </div>
                                     <div className="mt-5 text-center">
-                                        <button className="btn my-0 w-[200px] min-[576px]:w-[300px] py-3 min-[992px]:py-4 min-[768px]:w-[400px] rounded-md !text-lg">Login</button>
+                                        <button className="btn my-0 w-[200px] min-[576px]:w-[300px] !py-2 min-[992px]:py-4 min-[768px]:w-[300px] rounded-md !text-lg">Login</button>
                                     </div>
 
                                     <p className="text-center">not have account ? <a href="#" className="text-blue-600">signup</a></p>
                                     <p className="text-center mt-3">Forget Password ? <a href="#" className="text-blue-600">Get it on Email !</a></p>
-
                                 </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -31,14 +31,15 @@ import Gallery from './container/Gallery'
 import Department from './container/Department'
 import Layout from './Doctore/container/components/Layout'
 import DashLogin from './container/DashLogin'
+import Doctorer from './Rotesdash/Doctorer'
 
 function App() {
   const [count, setCount] = useState(0);
 
   const location = useLocation();
   //console.log("location",location.pathname)
-  const hideLayout = location.pathname === "/mailsuccess" || location.pathname === "/notfound" 
-                    || location.pathname.startsWith('/doctore') || location.pathname.startsWith('/deslogin');
+  const hideLayout = location.pathname === "/mailsuccess" || location.pathname === "/notfound"
+    || location.pathname.startsWith('/doctore') || location.pathname.startsWith('/deslogin');
 
   return (
     <>
@@ -69,7 +70,9 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/deparment" element={<Department />} />
         <Route path="/deslogin" element={<DashLogin />} />
-        <Route path="/doctore/layout" element={<Layout />} />
+        
+        <Route path='/doctore/*' element={<Doctorer />} />
+        
       </Routes>
       {!hideLayout && <Footer />}
     </>

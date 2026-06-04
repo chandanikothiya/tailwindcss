@@ -14,7 +14,7 @@
 
 
 .btn {
-    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden my-4 z-0  text-[#4b9209]
+    @apply bg-[#88C250] py-3 px-4 text-[14px] font-medium text-white relative overflow-hidden my-4 z-0 text-[#4b9209]
 }
 
 
@@ -128,7 +128,7 @@
     @apply block py-3 font-medium pl-1
 }
 
-.mobile-menu:has(.page-active){
+.mobile-menu:has(.page-active) {
     @apply text-[#88C250]
 }
 
@@ -660,19 +660,19 @@ table tr td span {
     @apply bg-[#006838] text-white py-[8px] px-[20px] flex gap-x-1 items-center grow-0 h-fit hover:bg-[#88C250]
 }
 
-#galleryp img{
+#galleryp img {
     @apply w-full rounded-lg hover:scale-130 hover:rounded-lg duration-500
 }
 
 .gimg {
-     @apply w-full rounded-lg overflow-hidden
+    @apply w-full rounded-lg overflow-hidden
 }
 
-.dimg{
+.dimg {
     @apply w-full h-[352px] overflow-hidden
 }
 
-.dimg img{
+.dimg img {
     @apply w-full h-full object-cover object-top hover:scale-120 duration-500
 }
 
@@ -685,12 +685,69 @@ table tr td span {
 }
 
 .login input {
-    @apply w-full border-1 border-gray-200 py-2 px-3 mt-2  bg-[#eaf8dd] rounded-md
+    @apply w-full border-1 border-gray-200 py-2 px-3 mt-2 bg-[#eaf8dd] rounded-md
 }
 
 .lactive {
-    @apply text-blue-600    
+    @apply text-blue-600
 }
+
+.dsubmenu li {
+    @apply flex text-[#717171] items-center gap-x-4 px-[20px] py-[8px] border-b-1 border-gray-200 hover:bg-[#eaf0e5]
+}
+
+
+.dsubmenu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 160px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.1));
+}
+
+.card-top {
+    position: relative;
+    height: 200px; /* fixed height */
+    overflow: hidden; /* important */
+    background-image: url('/assets/images/footer.jpg');
+    background-size: cover;
+    background-position: top center; /* show top part only */
+    background-repeat: no-repeat;
+    padding: 0 20px;
+}
+
+.card-top::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #87c250e5;
+    z-index: 1;
+}
+
+.doctore-card {
+    position: relative;
+    z-index: 2;           /* above overlay */
+    padding:10px 20px;
+    background: white;
+    
+}
+
+.patient-card {
+     position: relative;
+    z-index: 2;           /* above overlay */
+    padding:10px 20px;
+   
+}
+
+/* .doctore-card {
+    position: relative;
+    z-index: 2;
+} */
 
 /* #top {
     height: 366px;

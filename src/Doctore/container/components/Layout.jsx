@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
@@ -13,22 +13,27 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { FaArrowRightArrowLeft, FaHireAHelper, FaLock } from "react-icons/fa6";
 import { useTheme } from "@emotion/react";
 import { IconButton, useMediaQuery } from "@mui/material";
-import { IoIosPerson } from "react-icons/io";
+import { IoIosPerson, IoIosSettings } from "react-icons/io";
 import { CgNotes } from "react-icons/cg";
 import { NavLink } from "react-router-dom";
 import { TiUser } from "react-icons/ti";
 import { AiOutlineSchedule } from "react-icons/ai";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { PiUserFill } from "react-icons/pi";
 
 const drawerWidth = 240;
+
+
 
 function Layout({ children }) {
 
     const theme = useTheme();
     const isMobile = useMediaQuery("(max-width:768px)");
     const [open, setOpen] = React.useState(true);
+    const [sopen, setSopen] = useState(false)
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -45,43 +50,85 @@ function Layout({ children }) {
         { label: "Schedule", icone: <AiOutlineSchedule style={{ fontSize: '20px' }} /> },
     ];
 
+    useEffect(() => {
+        const closeMenu = () => {
+            setSopen(false);
+        };
+
+        window.addEventListener("click", closeMenu);
+
+        return () => {
+            window.removeEventListener("click", closeMenu);
+        };
+    }, []);
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} className="!bg-[#88C250]" open={open}>
-                <Toolbar>
-                    <Typography variant="h6" noWrap component="div">
-                        <img src="../../../public/assets/images/white-logo.svg" alt="logo" className="w-35" />
-                    </Typography>
+                <Toolbar className="flex justify-between">
+                    <Box className="flex">
+                        <Typography variant="h6" noWrap component="div">
+                            {
+                                open ? 
+                                <img src="../../../public/assets/images/white-logo.svg" alt="logo" className="w-35" /> :
+                                <img src="../../../public/assets/images/white.png" alt="logo" className="w-8" />
+                            }
+                            
+                        </Typography>
 
-                    <IconButton
-                        onClick={() => setOpen(!open)}
-                        sx={{ ml: 10 }}
-                    >
-                        <FaArrowRightArrowLeft className="!text-[22px] text-white" />
-                    </IconButton>
+                        <IconButton
+                            onClick={() => setOpen(!open)}
+                            sx={{ml: open ? 10 : 4 }}
+                        >
+                            <FaArrowRightArrowLeft className="!text-[22px] text-white" />
+                        </IconButton>
+                    </Box>
+
+                    <Box className="flex items-center gap-x-5">
+                        <img src="../../../public/assets/images/comment1.jpg" alt="" className="w-10 rounded-full" />
+
+                        <ul>
+                            {/* <span className="absolute top-13  right-40 w-4 h-4 bg-white rotate-45"></span> */}
+                            <li className="dnavitem relative  flex items-center cursor-default" onClick={(e) => {
+                                e.stopPropagation();
+                                setSopen(!sopen);
+                            }}>Arnold Ramsy <MdKeyboardArrowDown className="text-xl" />
+                                <ul className={`dsubmenu absolute top-[45px] -left-[70px]  bg-white shadow-2xl w-[200px] ${sopen ? 'block' : 'hidden'} rounded-bl-lg rounded-br-lg`}>
+                                    <li><IoIosSettings /> Setting</li>
+                                    <li><PiUserFill />Profile</li>
+                                    <li><FaHireAHelper className="text-[14px]" />Help</li>
+                                    <li><FaLock className="text-[14px]" />Logout</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </Box>  
                 </Toolbar>
             </AppBar>
             <Drawer
-                variant="persistent"
-                anchor="left"
-                open={open}
+                variant="permanent"
                 sx={{
-                    width: drawerWidth,
+                    width: open ? 240 : 70,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: drawerWidth,
+                        width: open ? 240 : 70,
                         boxSizing: 'border-box',
+                        overflowX: 'hidden !important',
+                        overflowY: 'auto',
+                        transition: 'width 0.3s ease',
+                        backgroundColor: '#eaf0e5',
                     },
-                    '& .css-1lwhjos-MuiPaper-root-MuiDrawer-paper': {
-                        backgroundColor: '#eaf0e5'
-                    }
                 }}
-              
             >
                 <Toolbar />
                 <Box sx={{ overflow: 'auto', mt: 3 }}>
-                    <List>
+                    <List
+                        sx={{
+                            width: "100%",
+                            overflow: "hidden",
+                        }}
+                    >
                         {menulist.map((v, index) => (
                             <ListItem key={index} disablePadding sx={{ display: 'block' }}>
                                 <ListItemButton
@@ -110,9 +157,10 @@ function Layout({ children }) {
                                     </ListItemIcon>
                                     <ListItemText
                                         primary={v.label}
-                                        sx={[
-                                            !isMobile && (open ? { opacity: 1 } : { opacity: 0 }),
-                                        ]}
+                                        sx={{
+                                            display: open ? "block" : "none",
+                                            whiteSpace: "nowrap",
+                                        }}
                                     />
                                 </ListItemButton>
                             </ListItem>
@@ -120,8 +168,10 @@ function Layout({ children }) {
                     </List>
                 </Box>
             </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                {children}
+            <Box component="main" sx={{ flexGrow: 1, p: 3,mt:8}}>
+               <Box sx={{ p: 3 }}>
+                    {children}
+                </Box>
             </Box>
         </Box>
     )
