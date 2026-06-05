@@ -56,9 +56,8 @@ function DoctoreAll() {
 
     return (
         <div >
-            <h3 className="py-5 px-8 text-2xl text-[#717171] shadow-sm rounded-4xl border-1 border-gray-200">All Doctore</h3>
+            <h3 className="py-4 px-8 text-xl text-[#717171] shadow-sm rounded-4xl border-1 border-gray-200">All Doctore</h3>
             <div className="grid grid-cols-12 gap-x-10">
-
                 {
                     doctorelist?.map?.((v, i) => (
                         <div className="col-span-4 mt-10 border-1 border-gray-200">

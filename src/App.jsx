@@ -29,9 +29,10 @@ import TermsCondition from './container/TermsCondition'
 import Privacypolicy from './container/Privacypolicy'
 import Gallery from './container/Gallery'
 import Department from './container/Department'
-import Layout from './Doctore/container/components/Layout'
 import DashLogin from './container/DashLogin'
 import Doctorer from './Rotesdash/Doctorer'
+import Admin from './Rotesdash/Admin'
+import Nurse from './Rotesdash/Nurse'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -39,7 +40,7 @@ function App() {
   const location = useLocation();
   //console.log("location",location.pathname)
   const hideLayout = location.pathname === "/mailsuccess" || location.pathname === "/notfound"
-    || location.pathname.startsWith('/doctore') || location.pathname.startsWith('/deslogin');
+    || location.pathname.startsWith('/doctore') || location.pathname.startsWith('/nurse') || location.pathname.startsWith('/admin') || location.pathname.startsWith('/deslogin');
 
   return (
     <>
@@ -72,7 +73,8 @@ function App() {
         <Route path="/deslogin" element={<DashLogin />} />
         
         <Route path='/doctore/*' element={<Doctorer />} />
-        
+        <Route path='/admin/*' element={<Admin/>} />
+        <Route path='/nurse/*' element={<Nurse/>} />
       </Routes>
       {!hideLayout && <Footer />}
     </>

@@ -23,7 +23,14 @@ import { TiUser } from "react-icons/ti";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { PiUserFill } from "react-icons/pi";
-
+import { MdDashboard } from "react-icons/md";
+import { FaUserInjured } from "react-icons/fa";
+import { FaCalendarCheck } from "react-icons/fa";
+import { FaNotesMedical } from "react-icons/fa";
+import { FaPills } from "react-icons/fa";
+import { FaFlask } from "react-icons/fa";
+import { FaAmbulance } from "react-icons/fa";
+import { FaBed } from "react-icons/fa";
 const drawerWidth = 240;
 
 
@@ -42,12 +49,12 @@ function Layout({ children }) {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
+    
     const menulist = [
-        { label: "All Doctore", icone: <IoIosPerson style={{ fontSize: '20px' }} /> },
-        { label: "Appointment", icone: <CgNotes style={{ fontSize: '20px' }} /> },
-        { label: "Patients", icone: <TiUser style={{ fontSize: '20px' }} /> },
-        { label: "Schedule", icone: <AiOutlineSchedule style={{ fontSize: '20px' }} /> },
+        { label: "All Doctore", icone: <IoIosPerson style={{ fontSize: '20px' }} /> ,to:"/doctore/alldoctore"},
+        { label: "Appointment", icone: <CgNotes style={{ fontSize: '20px' }} />,to:"/doctore/appointment"},
+        { label: "Patients", icone: <TiUser style={{ fontSize: '20px' }} /> ,to:"/doctore/allpatient" },
+        { label: "Schedule", icone: <AiOutlineSchedule style={{ fontSize: '20px' }} />, to:"/doctore/schedule"},
     ];
 
     useEffect(() => {
@@ -102,7 +109,6 @@ function Layout({ children }) {
                                 </ul>
                             </li>
                         </ul>
-
                     </Box>  
                 </Toolbar>
             </AppBar>

@@ -532,23 +532,23 @@ select {
 }
 
 
-table th {
+#time-table table th {
     @apply py-3 px-16 text-white font-poppins font-normal text-[14px] text-center
 }
 
-table tr {
+#time-tablee table tr {
     @apply border-b-1 border-b-gray-200
 }
 
-table tr td {
+#time-table table tr td {
     @apply text-center py-[35px] border-r-1 border-r-gray-200
 }
 
-table tr td h4 {
+#time-table table tr td h4 {
     @apply text-[16px] font-merriweather font-[600]
 }
 
-table tr td span {
+#time-table table tr td span {
     @apply text-[14px] font-merriweather text-[#838181] font-poppins font-[400]
 }
 
@@ -707,16 +707,19 @@ table tr td span {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid white;
-    filter: drop-shadow(0 -2px 3px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 -2px 3px rgba(0, 0, 0, 0.1));
 }
 
 .card-top {
     position: relative;
-    height: 200px; /* fixed height */
-    overflow: hidden; /* important */
+    height: 200px;
+    /* fixed height */
+    overflow: hidden;
+    /* important */
     background-image: url('/assets/images/footer.jpg');
     background-size: cover;
-    background-position: top center; /* show top part only */
+    background-position: top center;
+    /* show top part only */
     background-repeat: no-repeat;
     padding: 0 20px;
 }
@@ -725,23 +728,99 @@ table tr td span {
     content: "";
     position: absolute;
     inset: 0;
-    background: #87c250e5;
+    background: #f1f3f0f1;
     z-index: 1;
 }
 
 .doctore-card {
     position: relative;
-    z-index: 2;           /* above overlay */
-    padding:10px 20px;
+    z-index: 2;
+    /* above overlay */
+    padding: 10px 20px;
     background: white;
-    
+
 }
 
 .patient-card {
-     position: relative;
-    z-index: 2;           /* above overlay */
-    padding:10px 20px;
-   
+    position: relative;
+    z-index: 2;
+    /* above overlay */
+    padding: 10px 20px;
+
+}
+
+.appointment-tbl table {
+    @apply border-1 border-gray-200;
+}
+
+.appointment-tbl table th {
+    @apply py-3 px-16 font-poppins font-normal text-[14px] text-center
+}
+
+.appointment-tbl table tr {
+    @apply border-b-1 border-b-gray-200
+}
+
+.appointment-tbl table tr td {
+    @apply text-center py-[12px]
+}
+
+.appointment-tbl table tr td h4 {
+    @apply text-[16px] font-merriweather font-[600]
+}
+
+.appointment-tbl table tr td span {
+    @apply text-[14px] font-merriweather font-poppins font-[400]
+}
+
+/* All Buttons */
+.fc .fc-button-primary {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    color: #555 !important;
+    box-shadow: none !important;
+}
+
+/* Hover */
+.fc .fc-button-primary:hover {
+    background: #fff !important;
+    border-color: #ccc !important;
+    color: #333 !important;
+}
+
+/* Focus */
+.fc .fc-button-primary:focus {
+    box-shadow: none !important;
+}
+
+/* Active Buttons (Month, Week, Day, Today) */
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    color: #555 !important;
+}
+
+/* Disabled Buttons */
+.fc .fc-button-primary:disabled {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    color: #999 !important;
+   padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 20px !important;
+    font-weight: 500;
+}
+
+.addd input {
+    @apply border-1 border-gray-200 w-full py-2 px-4 mt-2 rounded-lg
+}
+
+.addd label {
+    @apply block text-[16px]
 }
 
 /* .doctore-card {
