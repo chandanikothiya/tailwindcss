@@ -815,12 +815,26 @@ select {
     font-weight: 500;
 }
 
-.addd input {
-    @apply border-1 border-gray-200 w-full py-2 px-4 mt-2 rounded-lg
-}
+
 
 .addd label {
     @apply block text-[16px]
+}
+
+/* .adddoctore-form > div{
+    @apply flex items-
+} */
+
+.adddoctore-form span {
+    @apply text-red-600
+}
+
+.adddoctore-form input {
+    @apply border-1 border-gray-200 py-2 px-4 mt-2  bg-white !text-[#555555] placeholder:text-[#555555]
+}
+
+.adddoctore-form select {
+    @apply border-1 border-gray-200 py-2 px-4 mt-2 w-[600px] bg-white !text-[#555555]
 }
 
 /* .doctore-card {

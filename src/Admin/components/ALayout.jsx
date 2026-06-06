@@ -16,7 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { FaArrowRightArrowLeft, FaHireAHelper, FaLock } from "react-icons/fa6";
 import { useTheme } from "@emotion/react";
 import { IconButton, useMediaQuery } from "@mui/material";
-import { IoIosPerson, IoIosSettings } from "react-icons/io";
+import { IoIosPerson, IoIosSettings, IoMdAdd } from "react-icons/io";
 import { CgNotes } from "react-icons/cg";
 import { NavLink } from "react-router-dom";
 import { TiUser } from "react-icons/ti";
@@ -69,11 +69,11 @@ function ALayout({ children }) {
             submenu: [
                 {
                     label: "All Patients",
-                    to: "/doctore/alldoctore",
+                    to: "/admin/allpatient",
                 },
                 {
                     label: "Add Patients",
-                    to: "/doctore/appointment",
+                    to: "/admin/addpatient",
                 },
                 {
                     label: "Edit Patients",
@@ -87,11 +87,25 @@ function ALayout({ children }) {
             submenu: [
                 {
                     label: "Doctore Schedule",
-                    to: "/doctore/alldoctore",
+                    to: "/admin/schedule",
                 },
                 {
                     label: "see Appoinment",
-                    to: "/doctore/appointment",
+                    to: "/admin/appointment",
+                }
+            ],
+        },
+        {
+            label: "Departments",
+            icone: <IoMdAdd style={{ fontSize: "20px" }} />,
+            submenu: [
+                {
+                    label: "Add Department",
+                    to: "/admin/department",
+                },
+                {
+                    label: "Manage Departments",
+                    to: "/admin/mangedepartment",
                 }
             ],
         }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoPersonAddOutline } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
 
 function Adddoctore() {
 
@@ -20,13 +21,10 @@ function Adddoctore() {
             <h3 className="py-4 px-8 text-xl text-[#717171] shadow-sm rounded-4xl border-1 border-gray-200">Add Doctore</h3>
 
             <div className="grid grid-cols-12">
-                <div className="bg-white border-1 border-gray-200 p-5 col-span-10 col-start-2">
+                <div className="bg-white border-1 border-gray-200 p-5 col-span-10 col-start-2 mt-12 shadow-md rounded-md">
                     <h4 className="text-[19px] font-poppins font-medium pb-4 border-b-1 border-b-gray-200">New Doctore</h4>
-
-                    <h3 className="mt-6 text-[16px]  font-poppins font-medium ml-6">Contact Information</h3>
-
                     <form >
-                        <div className="flex items-center gap-x-5 mt-6">
+                        <div className="flex items-center gap-x-5 mt-6 ml-1">
                             <label>Profile Image</label>
 
                             <div className="relative w-24 h-24">
@@ -62,114 +60,155 @@ function Adddoctore() {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-12 gap-x-8 gap-y-5 addd mt-6">
-                            <div className="col-span-6">
-                                <label>Name</label>
-                                <input type="text" name="name" id="name" />
-                            </div>
 
-                            <div className="col-span-6">
-                                <label>Username </label>
-                                <input type="text" name="uname" id="uname" />
-                            </div>
+                        <div className="p-4 border-1 border-[#e4e7ed] mt-10 bg-[#f8f9fc] rounded-2xl">
 
-                            <div className="col-span-6">
-                                <label>Phone Number</label>
-                                <input type="text" name="pno" id="pno" />
-                            </div>
+                            <h3 className="text-[16px]  font-poppins font-medium">Personal Information</h3>
 
-                            <div className="col-span-6">
-                                <label>Email Address</label>
-                                <input type="email" name="email" id="email" />
-                            </div>
+                            <div className="adddoctore-form mt-6">
 
-                            <div className="col-span-6">
-                                <label>DOB </label>
-                                <input type="date" name="dob" id="dob" />
-                            </div>
+                                <div className="grid grid-cols-12 gap-y-2">
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="fname" className="col-span-3 justify-self-end">First Name <span>*</span></label>
+                                        <input type="text" name="fname" id="fname" placeholder="enter first name" className="col-span-6 " />
+                                    </div>
 
-                            <div className="col-span-6">
-                                <label>Year Of Experience  </label>
-                                <input type="text" name="exp" id="exp" />
-                            </div>
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="lname" className="col-span-3 justify-self-end">Last Name <span>*</span></label>
+                                        <input type="text" name="lname" id="lname" placeholder="enter last name" className="col-span-6" />
+                                    </div>
 
-                            <div className="col-span-6">
-                                <label>Department</label>
-                                <select className="w-full text-gray-400 !border-1 border-gray-200 w-full py-2 px-4 mt-2 rounded-lg">
-                                    <option value='department' selected >Department</option>
-                                    <option value='genral'>Cardiology</option>
-                                    <option value='Gastroenterology'>Neurology</option>
-                                    <option value='Nutrition'>Orthopedics</option>
-                                    <option value='Cardiology'>Dermatology</option>
-                                    <option value='Neurology'>Gastroenterology</option>
-                                    <option value='Pediatric'>Endocrinology</option>
-                                     <option value='Neurology'>Pulmonology</option>
-                                    <option value='Pediatric'>Nephrology</option>
-                                </select>
-                            </div>
+                                     <div className="col-span-12 grid grid-cols-12 items-center gap-x-4 mt-2">
+                                        <label htmlFor="email" className="col-span-3 justify-self-end">Email</label>
+                                        <div className="col-span-6 flex border-1 border-gray-200 bg-white items-center px-3 py-0" >
+                                            <MdEmail className="text-[#555555]" /> <input type="email" name="email" id="email" placeholder="enter email" className="!border-0 w-full !mt-0" />
+                                        </div>
+                                    </div>
 
-                            <div className="col-span-6">
-                                <label>Designation</label>
-                                <select className="w-full text-gray-400 !border-1 border-gray-200 w-full py-2 px-4 mt-2 rounded-lg">
-                                    <option value='department' selected >Designation</option>
-                                    <option value='genral'>Senior Consultant</option>
-                                    <option value='Gastroenterology'>Junior Consultant</option>
-                                    <option value='Nutrition'>Specialist</option>
-                                    <option value='Cardiology'>Senior Specialist</option>
-                                    <option value='Neurology'>Resident Doctor</option>
-                                    <option value='Pediatric'>Chief Medical Officer</option>
-                                    <option value='genral'>Medical Officer</option>
-                                    <option value='Gastroenterology'>Attending Physician</option>
-                                    <option value='Nutrition'>Registrar</option>
-                                    <option value='Cardiology'>Senior Registrar</option>
-                                    <option value='Neurology'>Professor</option>
-                                    <option value='Pediatric'>Head of Department (HOD)</option>
-                                </select>
-                            </div>
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="dept" className="col-span-3 justify-self-end">Gender <span>*</span></label>
+                                        <select >
+                                            <option value='department' selected >select...</option>
+                                            <option value='genral'>Male</option>
+                                            <option value='Gastroenterology'>Female</option>
+                                            <option value='Nutrition'>Other</option>
+                                        </select>
+                                    </div>
 
-                             <div className="col-span-6">
-                                <label>Medical License Number</label>
-                                <input type="text" name="bgroup" id="bgroup" />
-                            </div>
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4 mt-2">
+                                        <label htmlFor="email" className="col-span-3 justify-self-end">Email</label>
+                                        <div className="col-span-6 flex border-1 border-gray-200 bg-white items-center px-3 py-0" >
+                                            <MdEmail className="text-[#555555]" /> <input type="email" name="email" id="email" placeholder="enter email" className="!border-0 w-full !mt-0" />
+                                        </div>
+                                    </div>
 
-                            <div className="col-span-6">
-                                <label>Language Spoken</label>
-                               <select className="w-full text-gray-400 !border-1 border-gray-200 w-full py-2 px-4 mt-2 rounded-lg">
-                                    <option value='department' selected >Language</option>
-                                    <option value='genral'>English</option>
-                                    <option value='Gastroenterology'>Hindi</option>
-                                    <option value='Nutrition'>Gujarati</option>
-                                </select>
-                            </div>
+                                    <div className="col-span-12 grid grid-cols-12 items-start gap-x-4">
+                                        <label htmlFor="address" className="col-span-3 justify-self-end mt-4">Address  <span>*</span></label>
+                                        <textarea name="address" id="address" rows="4" className="col-span-6 w-full bg-white border-1 border-gray-200 py-2 px-4 mt-2" placeholder="About Doctor"></textarea>
+                                    </div>
 
-                            <div className="col-span-6">
-                                <label>Blood Group*</label>
-                                <input type="text" name="bgroup" id="bgroup" />
-                            </div>
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="password" className="col-span-3 justify-self-end">Password  <span>*</span></label>
+                                        <input type="text" name="fname" id="fname" placeholder="enter Password" className="col-span-6 " />
+                                    </div>
 
-                            <div className="col-span-6">
-                                <label>Gender</label>
-                               <select className="w-full text-gray-400 !border-1 border-gray-200 w-full py-2 px-4 mt-2 rounded-lg">
-                                    <option value='department' selected >Gender</option>
-                                    <option value='genral'>Male</option>
-                                    <option value='Gastroenterology'>Female</option>
-                                    <option value='Nutrition'>Other</option>
-                                </select>
-                            </div>
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="cpassword" className="col-span-3 justify-self-end">Confirm Password <span>*</span></label>
+                                        <input type="text" name="lname" id="lname" placeholder="Reenter your Password" className="col-span-6" />
+                                    </div>
+                                </div>
 
-                            <div className="col-span-12">
-                                <label>Bio</label>
-                                <textarea name="bio" id="bio" rows="3" className="w-full border-1 border-gray-200 py-2 px-4 mt-2" placeholder="About Doctor"></textarea>
                             </div>
                         </div>
 
-                        <h3 className="mt-6 text-[16px]  font-poppins font-medium ml-6">Appointment Information</h3>
+                        <div className="p-4 border-1 border-[#e4e7ed] mt-10 bg-[#f8f9fc] rounded-2xl">
 
+                            <h3 className="text-[16px]  font-poppins font-medium">Professional Details</h3>
 
+                            <div className="adddoctore-form mt-6">
 
+                                <div className="grid grid-cols-12 gap-y-2">
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="fname" className="col-span-3 justify-self-end">Designation <span>*</span></label>
+                                        <input type="text" name="fname" id="fname" placeholder="enter your Designation" className="col-span-6 " />
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="fname" className="col-span-3 justify-self-end">Departments <span>*</span></label>
+                                        <select>
+                                            <option value='department' selected >Select...</option>
+                                            <option value='genral'>Cardiology</option>
+                                            <option value='Gastroenterology'>Neurology</option>
+                                            <option value='Nutrition'>Orthopedics</option>
+                                            <option value='Cardiology'>Dermatology</option>
+                                            <option value='Neurology'>Gastroenterology</option>
+                                            <option value='Pediatric'>Endocrinology</option>
+                                            <option value='Neurology'>Pulmonology</option>
+                                            <option value='Pediatric'>Nephrology</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="exp" className="col-span-3 justify-self-end">Years of Experience</label>
+                                        <input type="number" name="exp" id="exp" placeholder="enter Years of Experience" className="col-span-6 " />
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="lno" className="col-span-3 justify-self-end">License Number</label>
+                                        <input type="text" name="lno" id="lno" placeholder="Medical license number" className="col-span-6" />
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="pno" className="col-span-3 justify-self-end">Mobile No <span>*</span></label>
+                                        <input type="number" name="pno" id="pno" placeholder="Mobile No" className="col-span-6 " />
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="lname" className="col-span-3 justify-self-end">Birth Date <span>*</span></label>
+                                        <input type="date" name="lname" id="lname" placeholder="Medical license number" className="col-span-6" />
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-start gap-x-4">
+                                        <label htmlFor="address" className="col-span-3 justify-self-end mt-4">Address  <span>*</span></label>
+                                        <textarea name="address" id="address" rows="4" className="col-span-6 w-full bg-white border-1 border-gray-200 py-2 px-4 mt-2" placeholder="About Doctor"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="p-4 border-1 border-[#e4e7ed] mt-10 bg-[#f8f9fc] rounded-2xl">
+
+                            <h3 className="text-[16px]  font-poppins font-medium">Profile & Education</h3>
+
+                            <div className="adddoctore-form mt-6">
+                                <div className="grid grid-cols-12 gap-y-2">
+
+                                    <div className="col-span-12 grid grid-cols-12 items-start gap-x-4">
+                                        <label htmlFor="eduction" className="col-span-3 justify-self-end mt-4">Education</label>
+                                        <textarea name="eduction" id="eduction" rows="4" className="col-span-6 w-full bg-white border-1 border-gray-200 py-2 px-4 mt-2" placeholder="About Education"></textarea>
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="languages" className="col-span-3 justify-self-end">Languages</label>
+                                        <input type="text" name="languages" id="languages" placeholder="e.g.English, Hindi, Gujarati" className="col-span-6 " />
+                                    </div>
+
+                                    <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
+                                        <label htmlFor="linkdin" className="col-span-3 justify-self-end">LinkedIn</label>
+                                        <input type="text" name="linkdin" id="linkdin" placeholder="LinkedIn profile URL" className="col-span-6" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-5 justify-center mt-9 mb-4">
+                            <button className="btn !py-2 !px-10 rounded-3xl !text-[18px]">submit</button>
+                            <button className="px-10 !bg-[#fc544b] rounded-3xl py-2 text-[14px] font-medium text-white !text-[18px]">cancel</button>
+                        </div>
 
                     </form>
-
                 </div>
             </div>
 

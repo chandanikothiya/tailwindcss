@@ -33,6 +33,7 @@ import DashLogin from './container/DashLogin'
 import Doctorer from './Rotesdash/Doctorer'
 import Admin from './Rotesdash/Admin'
 import Nurse from './Rotesdash/Nurse'
+import Dashboard from './Rotesdash/Dashboard'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -71,10 +72,14 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/deparment" element={<Department />} />
         <Route path="/deslogin" element={<DashLogin />} />
-        
-        <Route path='/doctore/*' element={<Doctorer />} />
+
+        {/* <Route path='/doctore/*' element={<Doctorer />} />
         <Route path='/admin/*' element={<Admin/>} />
-        <Route path='/nurse/*' element={<Nurse/>} />
+        <Route path='/nurse/*' element={<Nurse/>} /> */}
+
+        <Route path='/doctore/*' element={<Dashboard />} />
+        <Route path='/admin/*' element={<Dashboard />} />
+        <Route path='/nurse/*' element={<Dashboard />} />
       </Routes>
       {!hideLayout && <Footer />}
     </>
