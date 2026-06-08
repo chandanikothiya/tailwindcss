@@ -26,8 +26,6 @@ import { PiStethoscopeFill, PiUserFill } from "react-icons/pi";
 
 const drawerWidth = 240;
 
-
-
 function ALayout({ children }) {
 
     const theme = useTheme();
@@ -59,7 +57,7 @@ function ALayout({ children }) {
                 },
                 {
                     label: "Edit Doctore",
-                    to: "/doctore/schedule",
+                    to: "/admin/editdoctore",
                 }
             ],
         },
@@ -77,7 +75,7 @@ function ALayout({ children }) {
                 },
                 {
                     label: "Edit Patients",
-                    to: "/doctore/schedule",
+                    //to: "/doctore/schedule",
                 }
             ],
         },

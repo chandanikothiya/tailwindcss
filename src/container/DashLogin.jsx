@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function DashLogin() {
 
-    const [role, setRole] = useState('Nurse');
+    const [role, setRole] = useState('Doctore');
 
 
     function handlechangeroll(e) {
@@ -28,8 +28,8 @@ function DashLogin() {
                                 <h3 className="text-[30px] font-poppins font-medium text-center">Login</h3>
 
                                 <ul className="flex border-1 border-gray-200 w-fit  px-2 rounded-md mx-auto my-7">
-                                    <li onClick={(e) => handlechangeroll(e)} className={`${role === 'Nurse' ? 'lactive' : ''}`}>Nurse</li>
-                                    <li onClick={(e) => handlechangeroll(e)} className={`${role === 'Doctore' ? 'lactive' : ''} border-x-1 border-gray-200`}>Doctore</li>
+                                    {/* <li onClick={(e) => handlechangeroll(e)} className={`${role === 'Nurse' ? 'lactive' : ''}`}>Nurse</li> */}
+                                    <li onClick={(e) => handlechangeroll(e)} className={`${role === 'Doctore' ? 'lactive' : ''} border-r-1 border-gray-200`}>Doctore</li>
                                     <li onClick={(e) => handlechangeroll(e)} className={`${role === 'Admin' ? 'lactive' : ''}`}>Admin</li>
                                 </ul>
 

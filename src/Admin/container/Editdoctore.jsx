@@ -4,52 +4,63 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { LuEye } from "react-icons/lu";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-function Managedepartment() {
+function Editdoctore() {
 
-    const appoinment = [
+    const doctorelist = [
         {
-            did: '01',
-            dname: 'Cardiologist',
-            dhead: 'Felica Queen',
-            status: 'active',
-            himg: '../../../public/assets/images/te1.jpg'
+             did: '01',
+            name: "Felica Queen",
+            role: "Cardiologist",
+            age: '30',
+            experiance: '5',
+            degree: 'M.D.',
+            img: '../../../public/assets/images/te1.jpg'
         },
         {
-            did: '02',
-            dname: 'Neurologist',
-            dhead: 'Alice Williams',
-            status: 'active',
-            himg: '../../../public/assets/images/te2.jpg'
+             did: '02',
+            name: "Alice Williams",
+            role: "Neurologist",
+            age: '35',
+            experiance: '8',
+            degree: 'MBBS',
+            img: '../../../public/assets/images/te2.jpg'
         },
         {
-            did: '03',
-            dname: 'Physician Assistant',
-            dhead: 'Paul Flavius',
-            status: 'active',
-            himg: '../../../public/assets/images/te3.jpg'
+             did: '03',
+            name: "Paul Flavius",
+            role: "Physician Assistant",
+            age: '32',
+            experiance: '4',
+            degree: 'MPA',
+            img: '../../../public/assets/images/te3.jpg'
         },
         {
-            did: '04',
-            dname: 'Physician Assistant',
-            dhead: 'Michael Bean',
-            status: 'active',
-            himg: '../../../public/assets/images/te4.jpg'
+             did: '03',
+            name: "Michael Bean",
+            role: "Physician Assistant",
+            age: '38',
+            experiance: '6',
+            degree: 'MPA',
+            img: '../../../public/assets/images/te4.jpg'
         },
         {
-            did: '05',
-            dname: 'Clinical Doctor',
-            dhead: 'Smith Wright',
-            status: 'active',
-            himg: '../../../public/assets/images/te5.jpg'
+             did: '04',
+            name: "Smith Wright",
+            role: "Clinical Doctor",
+            age: '29',
+            experiance: '3',
+            degree: 'BDS,MDS',
+            img: '../../../public/assets/images/te5.jpg'
         },
         {
-            did: '06',
-            dname: 'Surgeon',
-            dhead: 'Brooks Latshaw',
-            status: 'active',
-            himg: '../../../public/assets/images/te6.jpg'
+             did: '05',
+            name: "Brooks Latshaw",
+            role: "Surgeon",
+            age: '45',
+            experiance: '10',
+            degree: 'MBBS,MD',
+            img: '../../../public/assets/images/te6.jpg'
         },
-
     ]
 
     return (
@@ -73,40 +84,40 @@ function Managedepartment() {
                         <table className="w-full overflow-visible">
                             <thead className="bg-gray-100">
                                 <tr>
-                                    <th className="px-6 py-4 text-left font-semibold">Department ID</th>
+                                    <th className="px-6 py-4 text-left font-semibold">Doctore ID</th>
+                                    <th className="px-6 py-4 text-left font-semibold">Doctore</th>
                                     <th className="px-6 py-4 text-left font-semibold">Department Name</th>
-                                    <th className="px-6 py-4 text-left font-semibold">Head Name</th>
-                                    <th className="px-6 py-4 text-left font-semibold">Status</th>
+                                    <th className="px-6 py-4 text-left font-semibold">Age</th>
+                                    <th className="px-6 py-4 text-left font-semibold">Degree</th>
+                                    <th className="px-6 py-4 text-left font-semibold">Experiance</th>
                                     <th className="px-6 py-4"></th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {
-                                    appoinment?.map((v, i) => (
+                                    doctorelist?.map((v, i) => (
                                         <tr className="border-t border-gray-200 hover:bg-gray-50 ">
                                             <td className="px-6 py-4">{v.did}</td>
-
-                                             <td className="px-6 py-4">{v.dname}</td>
 
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-3">
                                                     <img
-                                                        src={v?.himg}
+                                                        src={v?.img}
                                                         alt=""
                                                         className="w-10 h-10 rounded-full object-cover"
                                                     />
-                                                    <span>{v?.dhead}</span>
+                                                    <span>{v?.name}</span>
                                                 </div>
                                             </td>
 
+                                            <td className="px-6 py-4">{v.role}</td>
 
-                                             <td className="px-6 py-4">
-                                                <span className={`px-3 py-1 text-xs font-medium rounded-md ${
-                                                    v.status === 'active' ? 'bg-[#ebf3fc] text-[#1976d2]' : 'bg-[#fee2e2] text-[#dc2626]'} `}>
-                                                    {v.status}
-                                                </span>
-                                            </td>
+                                            <td className="px-6 py-4">{v.age}</td>
+
+                                            <td className="px-6 py-4">{v.degree}</td>
+
+                                            <td className="px-6 py-4">{v.experiance}</td>
 
 
                                             <td className="px-6 py-4 text-center">
@@ -117,20 +128,20 @@ function Managedepartment() {
 
                                                     <div
                                                         className="
-                                                              absolute right-0 top-10
-                                                              min-w-[170px]
-                                                              bg-white
-                                                              border border-gray-200
-                                                              rounded-lg
-                                                              shadow-lg
-                                                              opacity-0
-                                                              invisible
-                                                              group-hover:opacity-100
-                                                              group-hover:visible
-                                                              transition-all
-                                                              duration-200
-                                                              z-50
-                                                          "
+                                                                      absolute right-0 top-10
+                                                                      min-w-[170px]
+                                                                      bg-white
+                                                                      border border-gray-200
+                                                                      rounded-lg
+                                                                      shadow-lg
+                                                                      opacity-0
+                                                                      invisible
+                                                                      group-hover:opacity-100
+                                                                      group-hover:visible
+                                                                      transition-all
+                                                                      duration-200
+                                                                      z-50
+                                                                  "
                                                     >
                                                         <ul className="py-2">
                                                             <li className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
@@ -164,4 +175,4 @@ function Managedepartment() {
     )
 }
 
-export default Managedepartment;
+export default Editdoctore;

@@ -34,6 +34,8 @@ import Doctorer from './Rotesdash/Doctorer'
 import Admin from './Rotesdash/Admin'
 import Nurse from './Rotesdash/Nurse'
 import Dashboard from './Rotesdash/Dashboard'
+import { Provider } from 'react-redux'
+import { storeconfig } from './redux/store'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,46 +45,50 @@ function App() {
   const hideLayout = location.pathname === "/mailsuccess" || location.pathname === "/notfound"
     || location.pathname.startsWith('/doctore') || location.pathname.startsWith('/nurse') || location.pathname.startsWith('/admin') || location.pathname.startsWith('/deslogin');
 
-  return (
-    <>
-      {!hideLayout && <Header />}
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/services' element={<Services />} />
-        <Route path='/service-detail' element={<ServiceDetail />} />
-        <Route path='/doctore' element={<Doctore />} />
-        <Route path='/doctoredetail' element={<DoctoreDetail />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/aboutus' element={<AboutUs />} />
-        <Route path='/appoinment' element={<Appoinment />} />
-        <Route path='/timetable' element={<Timetable />} />
-        <Route path='/testimonials' element={<Testimonials />} />
-        <Route path='/pricing' element={<Pricing />} />
-        <Route path='/projectdetail' element={<Projectdetail />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/faq' element={<FAQ />} />
-        <Route path="/mailsuccess" element={<MailSuccess />} />
-        <Route path="/notfound" element={<Notfound />} />
-        <Route path="/bloggrid" element={<Bloggrid />} />
-        <Route path="/blogsingle" element={<Blogsingle />} />
-        <Route path="/blogsinglesider" element={<Blogsinglesider />} />
-        <Route path="/termscondition" element={<TermsCondition />} />
-        <Route path="/privacypolicy" element={<Privacypolicy />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/deparment" element={<Department />} />
-        <Route path="/deslogin" element={<DashLogin />} />
+    const store = storeconfig()
 
-        {/* <Route path='/doctore/*' element={<Doctorer />} />
+  return (
+    
+      <Provider store={store}>
+        {!hideLayout && <Header />}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/service-detail' element={<ServiceDetail />} />
+          <Route path='/doctore' element={<Doctore />} />
+          <Route path='/doctoredetail' element={<DoctoreDetail />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/aboutus' element={<AboutUs />} />
+          <Route path='/appoinment' element={<Appoinment />} />
+          <Route path='/timetable' element={<Timetable />} />
+          <Route path='/testimonials' element={<Testimonials />} />
+          <Route path='/pricing' element={<Pricing />} />
+          <Route path='/projectdetail' element={<Projectdetail />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/faq' element={<FAQ />} />
+          <Route path="/mailsuccess" element={<MailSuccess />} />
+          <Route path="/notfound" element={<Notfound />} />
+          <Route path="/bloggrid" element={<Bloggrid />} />
+          <Route path="/blogsingle" element={<Blogsingle />} />
+          <Route path="/blogsinglesider" element={<Blogsinglesider />} />
+          <Route path="/termscondition" element={<TermsCondition />} />
+          <Route path="/privacypolicy" element={<Privacypolicy />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/deparment" element={<Department />} />
+          <Route path="/deslogin" element={<DashLogin />} />
+
+          {/* <Route path='/doctore/*' element={<Doctorer />} />
         <Route path='/admin/*' element={<Admin/>} />
         <Route path='/nurse/*' element={<Nurse/>} /> */}
 
-        <Route path='/doctore/*' element={<Dashboard />} />
-        <Route path='/admin/*' element={<Dashboard />} />
-        <Route path='/nurse/*' element={<Dashboard />} />
-      </Routes>
-      {!hideLayout && <Footer />}
-    </>
+          <Route path='/doctore/*' element={<Dashboard />} />
+          <Route path='/admin/*' element={<Dashboard />} />
+          <Route path='/nurse/*' element={<Dashboard />} />
+        </Routes>
+        {!hideLayout && <Footer />}
+      </Provider>
+
   )
 }
 

@@ -12,6 +12,7 @@ import Addpatient from "../Admin/container/Addpatient";
 import Department from "../container/Department";
 import Adddepartment from "../Admin/container/Adddepartment";
 import Managedepartment from "../Admin/container/Managedepartment";
+import Editdoctore from "../Admin/container/Editdoctore";
 
 function Dashboard() {
 
@@ -38,6 +39,7 @@ function Dashboard() {
                 <Route path="/addpatient" element={<Addpatient />} />
                 <Route path="/department" element={<Adddepartment />} />
                 <Route path="/mangedepartment" element={<Managedepartment />} />
+                <Route path="/editdoctore" element={<Editdoctore />} />
             </Routes>
         </LayoutComponent>
     )
