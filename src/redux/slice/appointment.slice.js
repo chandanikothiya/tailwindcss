@@ -5,7 +5,7 @@ import { BASE_URL } from "../../utility/url";
 
 const initialState = {
     isLoading: false,
-    department: [],
+    appointment: [],
     error: null
 }
 
@@ -14,7 +14,7 @@ export const getdepartment = createAsyncThunk(
     async (data) => {
         try {
 
-            const response = await axios.get(BASE_URL + 'department/getdepart');
+            const response = await axios.get(BASE_URL + 'department/getappoinment');
             console.log(response.data.data);
             return response.data.data;
 
@@ -24,12 +24,12 @@ export const getdepartment = createAsyncThunk(
     }
 )
 
-export const adddepartment = createAsyncThunk(
-    'department/adddepartment',
+export const addappointment = createAsyncThunk(
+    'appointment/addappointment',
     async (data) => {
         try {
 
-            const response = await axios.post(BASE_URL + 'department/adddepart', data);
+            const response = await axios.post(BASE_URL + 'appointment/adddappointment', data);
             console.log(response.data.data);
             return response.data.data;
 
@@ -39,11 +39,11 @@ export const adddepartment = createAsyncThunk(
     }
 )
 
-export const updatedepartment = createAsyncThunk(
-    'department/updatedepartment',
+export const updateappointment = createAsyncThunk(
+    'appointment/updateappointment',
     async (data) => {
         try {
-            const response = await axios.put(BASE_URL + `department/updatedepart/${data.id}`, data);
+            const response = await axios.put(BASE_URL + `appointment/updateappoinment/${data.id}`, data);
             console.log(response.data.data);
             return response.data.data;
 
@@ -53,11 +53,11 @@ export const updatedepartment = createAsyncThunk(
     }
 )
 
-export const deletedepartment = createAsyncThunk(
-    'department/deletedepartment',
+export const deleteappointment = createAsyncThunk(
+    'appointment/deleteappointment',
     async (data) => {
         try {
-            const response = await axios.delete(BASE_URL + `department/deletedepart/${id}`);
+            const response = await axios.delete(BASE_URL + `appointment/deleteappoinment/${id}`);
             console.log(response.data.data);
             return response.data.data;
 
@@ -67,17 +67,18 @@ export const deletedepartment = createAsyncThunk(
     }
 )
 
-const departmentslice = createSlice({
-    name: "department",
+
+const appointmentslice = createSlice({
+    name: "appointment",
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(adddepartment.fulfilled, (state, action) => {
-            state.department.push(action.payload)
+        builder.addCase(addappointment.fulfilled, (state, action) => {
+            state.appointment.push(action.payload)
         }),
-            builder.addCase(updatedepartment.fulfilled, (state, action) => {
+            builder.addCase(updateappointment.fulfilled, (state, action) => {
                 state.department = action.payload
             }),
-            builder.addCase(deletedepartment.fulfilled, (state, action) => {
+            builder.addCase(deleteappointment.fulfilled, (state, action) => {
                 state.department = action.payload
             }),
             builder.addCase(getdepartment.fulfilled, (state, action) => {
@@ -86,4 +87,4 @@ const departmentslice = createSlice({
     }
 })
 
-export default departmentslice.reducer;
+export default appointmentslice.reducer;

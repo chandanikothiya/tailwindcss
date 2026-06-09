@@ -1,31 +1,63 @@
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import { object, string } from 'yup';
+import { useDispatch, useSelector } from "react-redux";
+import { mixed, object, string } from 'yup';
+import { adddoctore, getdoctore, updatedoctore } from "../../redux/slice/doctore.slice";
+import { useParams, useSearchParams } from "react-router-dom";
+import { IMG_URL } from "../../utility/url";
 
 
 function Adddoctore() {
 
     const [image, setImage] = useState(null);
+    const dispatch = useDispatch();
+
+    const { id } = useParams();
+    console.log(id)
+
+    // if (id) {
+    //     dispatch(getdoctore(id))
+    // }
+
+    useEffect(() => {
+        dispatch(getdoctore(id))
+    }, [id])
+
+    const doctores = useSelector(state => state.doctore)
+    const doctoredata = doctores?.doctore?.[0]
+    //console.log(doctores.doctore, Object.keys(doctoredata)?.length > 0)
 
     const handleImage = (e) => {
         const file = e.target.files[0];
 
         if (file) {
             setImage(URL.createObjectURL(file));
+            setFieldValue("profile_img", file);
         }
     };
 
     const department = object({
-        profile: string().required(),
+        profile_img: mixed().test(
+            "fileRequired",
+            "Profile image is required",
+            value => {
+                if (!value) return false;
+
+                return (
+                    value instanceof File ||
+                    typeof value === "string"
+                );
+            }
+        ),
         fname: string().required(),
         lname: string().required(),
-        email: string().required(),
+        email: string().email(),
         gender: string().required(),
-        pass: string().required(),
-        cpass: string().required(),
+        pass: string(),
+        cpass: string(),
         designation: string().required(),
         dept: string().required(),
         lno: string().required(),
@@ -33,41 +65,49 @@ function Adddoctore() {
         bod: string().required(),
         address: string().required(),
         eduction: string().required(),
-        languages: string().required(),
-        linkdin: string().required(),
+        languages: string(),
+        linkdin: string(),
     })
 
     const formik = useFormik({
         initialValues: {
-            fname: '',
-            lname: '',
-            email: '',
-            gender: '',
+            profile_img: doctoredata?.profile_img || '',
+            fname: doctoredata?.fname || '',
+            lname: doctoredata?.lname || '',
+            email: doctoredata?.email || '',
+            gender: doctoredata?.gender || '',
             pass: '',
-            designation: '',
-            dept: '',
-            lno: '',
-            pno: '',
-            bod: '',
-            address: '',
-            designation: '',
-            eduction: '',
-            languages: '',
-            linkdin: ''
+            designation: doctoredata?.designation || '',
+            dept: doctoredata?.departments || '',
+            lno: doctoredata?.lno || '',
+            pno: doctoredata?.pno || '',
+            bod: doctoredata?.dob || '',
+            address: doctoredata?.address || '',
+            eduction: doctoredata?.education || '',
+            languages: doctoredata?.languages || '',
+            linkdin: doctoredata?.linkdin || '',
+            exp: doctoredata?.exp || ''
         },
         validationSchema: department,
-        onSubmit: values => {
-            console.log(values)
-            //dispatch(registeruser(values))
-            //dispatch(verifyuser(values))
+        enableReinitialize: true,
+        onSubmit: (values, { resetForm }) => {
+            console.log("values", values);
 
-            dispatch(adddepartment(values))
+            if (Object.keys(doctoredata).length > 0) {
+                dispatch(updatedoctore({...values,id:doctoredata?._id}))
+            } else {
+                dispatch(adddoctore(values))
+            }
+
+            resetForm();
         },
     })
 
-    const { handleSubmit, handleBlur, handleChange, values, touched, errors } = formik;
-    console.log(errors, touched)
-
+    const { handleSubmit, handleBlur, handleChange, values, touched, errors, setFieldValue, setFieldTouched } = formik;
+    // console.log(errors, touched)
+    console.log("profile:", values);
+    console.log("errors:", errors);
+    console.log("touched:", touched);
 
     return (
         <div >
@@ -76,18 +116,24 @@ function Adddoctore() {
             <div className="grid grid-cols-12">
                 <div className="bg-white border-1 border-gray-200 p-5 col-span-10 col-start-2 mt-12 shadow-md rounded-md">
                     <h4 className="text-[19px] font-poppins font-medium pb-4 border-b-1 border-b-gray-200">New Doctore</h4>
-                    <form  onSubmit={handleSubmit} className="doctore-form">
+                    <form onSubmit={handleSubmit} className="doctore-form">
                         <div className="flex items-center gap-x-5 mt-6 ml-1">
                             <label>Profile Image</label>
 
                             <div className="relative w-24 h-24">
                                 <label
-                                    htmlFor="profile"
+                                    htmlFor="profile_img"
                                     className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden cursor-pointer border border-gray-200"
                                 >
                                     {image ? (
                                         <img
                                             src={image}
+                                            alt="profile"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    ) : doctoredata?.profile_img ? (
+                                        <img
+                                            src={IMG_URL + doctoredata.profile_img.replace(/\\/g, "/")}
                                             alt="profile"
                                             className="w-full h-full object-cover"
                                         />
@@ -98,13 +144,11 @@ function Adddoctore() {
 
                                 <input
                                     type="file"
-                                    id="profile"
-                                    name="profile"
+                                    id="profile_img"
+                                    name="profile_img"
                                     accept="image/*"
                                     className="hidden"
                                     onChange={handleImage}
-                                    value={values.profile}
-                                    onChange={handleChange}
                                     onBlur={handleBlur}
                                 />
 
@@ -114,8 +158,12 @@ function Adddoctore() {
                                 >
                                     <FaCamera className="text-sm" />
                                 </label>
+                                {errors.profile_img && touched.profile_img && (
+                                    <span className="espan !w-[170px] !mt-2">
+                                        {errors.profile_img}
+                                    </span>
+                                )}
                             </div>
-                            {errors.profile && touched.profile ? <span>{errors.des}</span> : ""}
                         </div>
 
 
@@ -203,8 +251,8 @@ function Adddoctore() {
 
                                 <div className="grid grid-cols-12 gap-y-2">
                                     <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
-                                        <label htmlFor="fname" className="col-span-3 justify-self-end">Designation <span>*</span></label>
-                                        <input type="text" name="designation" id="designation" placeholder="enter your Designation" className="col-span-6 " value={values.des}
+                                        <label htmlFor="designation" className="col-span-3 justify-self-end">Designation <span>*</span></label>
+                                        <input type="text" name="designation" id="designation" placeholder="enter your Designation" className="col-span-6 " value={values.designation}
                                             onChange={handleChange}
                                             onBlur={handleBlur} />
                                     </div>
@@ -228,6 +276,9 @@ function Adddoctore() {
                                             <option value="Endocrinology">Endocrinology</option>
                                             <option value="Pulmonology">Pulmonology</option>
                                             <option value="Nephrology">Nephrology</option>
+                                            <option value="Nephrology">Dentistry</option>
+                                            <option value="General Medicine">General Medicine</option>
+                                            <option value="Nephrology">General Surgery</option>
                                         </select>
                                     </div>
                                     {errors.dept && touched.dept ? <span className="espan">{errors.dept}</span> : ""}
@@ -241,7 +292,7 @@ function Adddoctore() {
                                     {errors.exp && touched.exp ? <span className="espan">{errors.exp}</span> : ""}
 
                                     <div className="col-span-12 grid grid-cols-12 items-center gap-x-4">
-                                        <label htmlFor="lno" className="col-span-3 justify-self-end">License Number</label>
+                                        <label htmlFor="lno" className="col-span-3 justify-self-end">License Number <span>*</span></label>
                                         <input type="text" name="lno" id="lno" placeholder="Medical license number" className="col-span-6" value={values.lno}
                                             onChange={handleChange}
                                             onBlur={handleBlur} />
@@ -265,7 +316,7 @@ function Adddoctore() {
                                     {errors.bod && touched.bod ? <span className="espan">{errors.bod}</span> : ""}
 
                                     <div className="col-span-12 grid grid-cols-12 items-start gap-x-4">
-                                        <label htmlFor="address" className="col-span-3 justify-self-end mt-4">Address  <span>*</span></label>
+                                        <label htmlFor="address" className="col-span-3 justify-self-end mt-4">Address <span>*</span></label>
                                         <textarea name="address" id="address" rows="4" className="col-span-6 w-full bg-white border-1 border-gray-200 py-2 px-4 mt-2"
                                             placeholder="About Doctor" value={values.address}
                                             onChange={handleChange}
@@ -285,7 +336,7 @@ function Adddoctore() {
                                 <div className="grid grid-cols-12 gap-y-2">
 
                                     <div className="col-span-12 grid grid-cols-12 items-start gap-x-4">
-                                        <label htmlFor="eduction" className="col-span-3 justify-self-end mt-4">Education</label>
+                                        <label htmlFor="eduction" className="col-span-3 justify-self-end mt-4">Education <span>*</span></label>
                                         <textarea name="eduction" id="eduction" rows="4" className="col-span-6 w-full bg-white border-1 border-gray-200 py-2 px-4 mt-2"
                                             placeholder="About Education" value={values.eduction}
                                             onChange={handleChange}

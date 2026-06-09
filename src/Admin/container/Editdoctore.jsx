@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BiEdit } from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { LuEye } from "react-icons/lu";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { getalldoctore, getdoctore } from "../../redux/slice/doctore.slice";
+import { IMG_URL } from "../../utility/url";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Editdoctore() {
 
     const doctorelist = [
         {
-             did: '01',
+            did: '01',
             name: "Felica Queen",
             role: "Cardiologist",
             age: '30',
@@ -17,7 +21,7 @@ function Editdoctore() {
             img: '../../../public/assets/images/te1.jpg'
         },
         {
-             did: '02',
+            did: '02',
             name: "Alice Williams",
             role: "Neurologist",
             age: '35',
@@ -26,7 +30,7 @@ function Editdoctore() {
             img: '../../../public/assets/images/te2.jpg'
         },
         {
-             did: '03',
+            did: '03',
             name: "Paul Flavius",
             role: "Physician Assistant",
             age: '32',
@@ -35,7 +39,7 @@ function Editdoctore() {
             img: '../../../public/assets/images/te3.jpg'
         },
         {
-             did: '03',
+            did: '03',
             name: "Michael Bean",
             role: "Physician Assistant",
             age: '38',
@@ -44,7 +48,7 @@ function Editdoctore() {
             img: '../../../public/assets/images/te4.jpg'
         },
         {
-             did: '04',
+            did: '04',
             name: "Smith Wright",
             role: "Clinical Doctor",
             age: '29',
@@ -53,7 +57,7 @@ function Editdoctore() {
             img: '../../../public/assets/images/te5.jpg'
         },
         {
-             did: '05',
+            did: '05',
             name: "Brooks Latshaw",
             role: "Surgeon",
             age: '45',
@@ -62,6 +66,25 @@ function Editdoctore() {
             img: '../../../public/assets/images/te6.jpg'
         },
     ]
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
+    const doctores = useSelector(state => state.doctore)
+    console.log(doctores.doctore)
+
+    function getdata() {
+        dispatch(getalldoctore());
+    }
+
+    useEffect(() => {
+        getdata();
+    }, [])
+
+
+    function handleedit(id) {
+        navigate(`/admin/adddoctore/${id}`)
+    }
 
     return (
         <div >
@@ -96,28 +119,35 @@ function Editdoctore() {
 
                             <tbody>
                                 {
-                                    doctorelist?.map((v, i) => (
-                                        <tr className="border-t border-gray-200 hover:bg-gray-50 ">
-                                            <td className="px-6 py-4">{v.did}</td>
+                                    doctores.doctore?.map((v, i) => {
+
+                                        const today = new Date();
+                                        const bdate = new Date(v.dob);
+
+                                        let age = today.getFullYear() - bdate.getFullYear();
+                                        console.log(age, bdate, v.dob)
+
+                                        return (<tr className="border-t border-gray-200 hover:bg-gray-50 ">
+                                            <td className="px-6 py-4">{v._id.slice(-4)}</td>
 
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-3">
                                                     <img
-                                                        src={v?.img}
+                                                        src={IMG_URL + v.profile_img}
                                                         alt=""
                                                         className="w-10 h-10 rounded-full object-cover"
                                                     />
-                                                    <span>{v?.name}</span>
+                                                    <span>{v.fname + " " + v.lname}</span>
                                                 </div>
                                             </td>
 
-                                            <td className="px-6 py-4">{v.role}</td>
+                                            <td className="px-6 py-4">{v.departments}</td>
 
-                                            <td className="px-6 py-4">{v.age}</td>
+                                            <td className="px-6 py-4">{age}</td>
 
-                                            <td className="px-6 py-4">{v.degree}</td>
+                                            <td className="px-6 py-4">{v.education}</td>
 
-                                            <td className="px-6 py-4">{v.experiance}</td>
+                                            <td className="px-6 py-4">{v.exp}</td>
 
 
                                             <td className="px-6 py-4 text-center">
@@ -149,7 +179,7 @@ function Editdoctore() {
                                                                 View Details
                                                             </li>
 
-                                                            <li className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
+                                                            <li className="px-4 py-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer" onClick={() => handleedit(v._id)}>
                                                                 <BiEdit />
                                                                 Edit
                                                             </li>
@@ -162,8 +192,8 @@ function Editdoctore() {
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                    ))
+                                        </tr>)
+                                    })
                                 }
                             </tbody>
                         </table>
